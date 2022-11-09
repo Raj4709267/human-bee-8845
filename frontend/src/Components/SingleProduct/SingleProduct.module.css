@@ -1,0 +1,65 @@
+.main{
+    border:1px solid red;
+
+}
+.sg{
+    border: 1px solid black;
+}
+
+
+@media only screen and (min-width:0px) and (max-width:500px){
+    .main{
+        flex-direction: column;
+      width: 98% !important;
+    }
+    .main2{
+        width: 100% !important;
+      
+    }
+    .imgBox1{
+        display: none;
+    }
+    .desc{
+        width: 100% !important;
+
+    }
+    .select{
+        width: 100% !important;
+       
+    }
+    .btn1{
+        width: 98% !important;
+        margin-bottom: 10px;
+        font-size: 20px !important;
+        height: 50px !important;
+    
+    }
+    .btn2{
+        width: 98% !important;
+        margin-bottom: 10px;
+        font-size: 20px !important;
+       
+    }
+    
+    
+}
+@media only screen and (min-width:500px) and (max-width:766px){
+    .main{
+        width: 98% !important;
+    }
+    .imgBox1{
+        display: none;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn1{
+        width: 90% !important;
+        margin-bottom: 10px;
+    }
+    .btn2{
+        width: 90% !important;
+        margin-bottom: 10px;
+    }
+}

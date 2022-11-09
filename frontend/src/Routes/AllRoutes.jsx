@@ -7,6 +7,7 @@ import Homepage from '../Pages/Homepage'
 import Payment from '../Pages/Payment'
 import Review from '../Pages/Review'
 import ShippingAddress from '../Pages/ShippingAddress'
+import Wishlist from '../Pages/Wishlist/Wishlist'
 
 const AllRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AllRoutes = () => {
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/cart" element={<CartPage/>}/>
+        <Route path="/wishlist" element={<Wishlist/>}/>
         <Route path="/shippingaddress" element={<ShippingAddress/>}/>
         <Route path="/review" element={<Review/>}/>
         <Route path="/payment" element={<Payment/>}/>

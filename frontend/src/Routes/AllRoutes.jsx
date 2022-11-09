@@ -15,6 +15,7 @@ const AllRoutes = () => {
         <Route path="/shippingaddress" element={<ShippingAddress/>}/>
         <Route path="/review" element={<Review/>}/>
         <Route path="/payment" element={<Payment/>}/>
+        <Route path="*" element={<Error/>}/>
       </Routes>
     </div>
   )

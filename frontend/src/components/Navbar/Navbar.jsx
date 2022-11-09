@@ -13,6 +13,7 @@ import { BiShoppingBag, BiUser, BiHeart, BiChevronDown, BiChevronUp } from "reac
 import { Signup } from "./Signup";
 import { useDispatch, useSelector } from "react-redux";
 import { logout_user } from "../../Redux/Auth/action";
+import Menu from "./NavMenu";
 
 function Navbar() {
   const [isProfile, setIsProfile] = useState(false);
@@ -21,9 +22,7 @@ function Navbar() {
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
   const { userID } = useSelector((store) => store.AuthReducer.userData);
 
-  const handelAdd = () => {
-    dispatch({ type: "ADD", payload: 1 });
-  };
+
   console.log(isProfile)
   return (
     <Accordion allowToggle={true}>
@@ -75,6 +74,9 @@ function Navbar() {
           </div>
         </div>
       </AccordionItem>
+      <div className={style.navMenu}>
+        <Menu/>
+      </div>
     </Accordion>
   );
 }

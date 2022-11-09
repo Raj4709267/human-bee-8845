@@ -13,7 +13,7 @@ import { BiShoppingBag, BiUser, BiHeart, BiChevronDown, BiChevronUp } from "reac
 import { Signup } from "./Signup";
 import { useDispatch, useSelector } from "react-redux";
 import { logout_user } from "../../Redux/Auth/action";
-import Menu from "./NavMenu";
+// import Menu from "./NavMenu";
 
 function Navbar() {
   const [isProfile, setIsProfile] = useState(false);
@@ -74,9 +74,9 @@ function Navbar() {
           </div>
         </div>
       </AccordionItem>
-      <div className={style.navMenu}>
+      {/* <div className={style.navMenu}>
         <Menu/>
-      </div>
+      </div> */}
     </Accordion>
   );
 }

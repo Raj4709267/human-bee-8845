@@ -4,6 +4,7 @@ import CartPage from '../Pages/CartPage'
 import Homepage from '../Pages/Homepage'
 import Payment from '../Pages/Payment'
 import Review from '../Pages/Review'
+import Error from '../Pages/Error'
 import ShippingAddress from '../Pages/ShippingAddress'
 
 const AllRoutes = () => {

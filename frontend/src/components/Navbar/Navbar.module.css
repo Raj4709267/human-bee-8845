@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5% 0 5%;
+    border: 1px solid blue;
+}
+
+.navbar>div{
+    border: 1px solid black;
+}
+.navbar>div:nth-child(2) img {
+    height: 60px;
+}
+
+
+/* gender category */
+.gender {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+
+.gender>a {
+    border: 1px solid red;
+}
+
+/* icons */
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.icons>a {
+    /* border: 1px solid rgb(255, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons>a>button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

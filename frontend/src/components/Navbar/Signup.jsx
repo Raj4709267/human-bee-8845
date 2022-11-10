@@ -34,7 +34,9 @@ function Signup() {
   const [signup, setSignup] = useState(false);
   const [show, setShow] = React.useState(false);
   const [isError, setIsError] = useState(false);
-  const [isSuccess,setIsSuccess] =useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [SisError, SsetIsError] = useState(false);
+  const [SisSuccess, SsetIsSuccess] = useState(false);
   const handleClick = () => setShow(!show);
 
   const [name, setName] = useState("");
@@ -44,48 +46,44 @@ function Signup() {
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
   const dispatch = useDispatch();
-  const { isLoading, isAuth } = useSelector((store) => store.AuthReducer);
+  const { isLoading } = useSelector((store) => store.AuthReducer);
 
   const handelSignin = async () => {
     const payload = { email, password };
-    console.log(payload);
     dispatch(signin_request());
     return await axios
       .post("https://todoapp-1fsu.onrender.com/users/login", payload)
       .then((res) => {
         dispatch(signin_success(res.data));
-        console.log(res);
+        SsetIsError(false);
+        SsetIsSuccess(true);
       })
       .catch((err) => {
         dispatch(signin_failure());
-        console.log(err);
+        SsetIsError(true);
+        SsetIsSuccess(false);
       });
   };
   const handelSignup = async () => {
     const payload = { email, password, name };
-    console.log(payload);
     dispatch(signup_request());
     return await axios
       .post("https://todoapp-1fsu.onrender.com/users/signup", payload)
       .then((res) => {
         dispatch(signup_success());
-        console.log(res);
         setIsError(false);
-        setIsSuccess(true)
-        setTimeout(()=>{
+        setIsSuccess(true);
+        setTimeout(() => {
           setSignin(true);
           setSignup(false);
-        },2000)
-       
+        }, 2000);
       })
       .catch((err) => {
         dispatch(signup_failure());
-        console.log(err);
         setIsError(true);
-        setIsSuccess(false)
+        setIsSuccess(false);
       });
   };
-  console.log(isError);
   return (
     <>
       <p onClick={onOpen}>
@@ -101,7 +99,12 @@ function Signup() {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Come on in</ModalHeader>
-          <ModalCloseButton onClick={() => setIsError(false)} />
+          <ModalCloseButton
+            onClick={() => {
+              setIsError(false);
+              SsetIsError(false);
+            }}
+          />
 
           <ModalBody pb={6} marginBottom="-30px">
             <div style={{ display: "flex", gap: "30px" }}>
@@ -170,6 +173,16 @@ function Signup() {
                 />
                 Keep me signed in.
               </h1>
+              {SisError && (
+                <h1 style={{ color: "red", marginTop: "10px" }}>
+                  Something went wrong
+                </h1>
+              )}
+              {SisSuccess && (
+                <h1 style={{ color: "green", marginTop: "10px" }}>
+                  Login successfull
+                </h1>
+              )}
             </ModalBody>
           )}
           {signin && (
@@ -182,6 +195,7 @@ function Signup() {
                 width="100%"
                 onClick={handelSignin}
                 isLoading={isLoading}
+                disabled={!email || !password}
               >
                 Sign in
               </Button>
@@ -272,6 +286,7 @@ function Signup() {
                 width="100%"
                 onClick={handelSignup}
                 isLoading={isLoading}
+                disabled={!name || !email || !password}
               >
                 Sign up
               </Button>
@@ -284,4 +299,3 @@ function Signup() {
 }
 
 export { Signup };
-

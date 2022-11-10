@@ -1,16 +1,25 @@
-.navbar {
+.navbar{
+    /* border: 1px solid red; */
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.navbarTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5% 0 5%;
-    border: 1px solid blue;
 }
 
-.navbar>div{
+/* .navbarTop>div{
     border: 1px solid black;
-}
-.navbar>div:nth-child(2) img {
+} */
+.navbarTop>div:nth-child(3) img {
     height: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -20,11 +29,12 @@
     justify-content: center;
     align-content: center;
     gap: 20px;
+    font-size: 18px;
 }
 
-.gender>a {
+/* .gender>a {
     border: 1px solid red;
-}
+} */
 
 /* icons */
 
@@ -49,3 +59,107 @@
 }
 
 
+
+
+/* hamburger */
+.Hamburger {
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+
+}
+
+.Hamburger div {
+    border-bottom: 1px solid #d1d1d1;
+    padding: 15px;
+    width: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+.hamburgerIcon{
+    display: none;
+}
+
+/* navprofile */
+.navProfileMain{
+    /* border: 1px solid black; */
+    background: #f5f5f5;
+}
+.navProfileMain>button{
+    border: 1px solid rgb(159, 159, 159);
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 50px;
+    background: #000;
+    color: white;
+    border-radius: 5px;
+}
+.navProfileMain>button:hover{
+    background: rgb(58, 58, 58);
+}
+.navProfile{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+    padding-left: 5%;
+}
+.navProfile button{
+    all: unset;
+    cursor: pointer;
+}
+.navProfile>h1{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.input{
+    display: flex;
+    border: 1px solid rgb(196, 196, 196);
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    border-radius: 5px;
+    /* padding: 5px; */
+    width: 250px;
+}
+.input>input{
+    all:unset;
+    text-align: left;
+}
+
+@media (min-width: 100px) and (max-width: 1000px) {
+    .menuBar,.gender{
+        display: none;
+    }
+    .hamburgerIcon{
+        display: block;
+    }
+    .iconsForHide{
+        display: none;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 700px) {
+   
+    .icons>a {
+        display: none;
+        
+    }
+    .userName{
+        display: none;
+    }
+}
+
+
+@media (min-width: 100px) and (max-width: 500px) {
+    .navTopContainer>div:last-child{
+        margin-left: auto;
+    }
+}

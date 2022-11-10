@@ -1,0 +1,17 @@
+
+.bt{
+    text-align: center;
+    border: 0.5px solid black;
+    width: 90%;
+    height:40px;
+    border-radius: 6px;
+}
+
+
+@media only screen and (max-width: 992px){
+    .bt{
+        font-size: small;
+        width: 100%;
+    }
+    
+}

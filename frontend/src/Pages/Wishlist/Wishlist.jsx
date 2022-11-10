@@ -15,10 +15,15 @@ import {
   ListItem,
   Button,
   Select,
+  GridItem,
+  Grid,
 } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
+
+import st from "./wishlist.module.css"
+
 const Wishlist = () => {
   const [data, setData] = useState([]);
 
@@ -36,23 +41,22 @@ const Wishlist = () => {
     <>
       <div>
         <Heading
-          color={useColorModeValue("gray.700", "black")}
+          as={"b"}
           fontSize={"4xl"}
           fontFamily={"sans-serif"}
         >
           Wishlist
         </Heading>
         <h3>{data.length} PICIES</h3>
-        <br />
-        <Heading
-          color={useColorModeValue("black")}
-          fontSize={"1xl"}
+        <Text
+          as={"samp"}
+          fontSize={"sm"}
           fontFamily={"sans-serif"}
         >
           Keep track of your favorite pieces no matter the browser or
           <br />
           device, all in one place
-        </Heading>
+        </Text>
       </div>
       <div>
         {/* {data.length>0 && data.map((ele,i)=>{
@@ -63,45 +67,104 @@ const Wishlist = () => {
             </div>
         })} */}
         {/* <Center py={6}> */}
-        <Box
-          maxW={"445px"}
-          w={"full"}
-          bg={useColorModeValue("white", "gray.900")}
-          boxShadow={"2xl"}
-          rounded={"md"}
-          p={6}
-          overflow={"hidden"}
-        >
-          <Box>
-            <Image
-              src={
-                "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-              }
-              layout={"fill"}
-            />
-          </Box>
-          <Box pr={-10}>
-            <Text>New Season</Text>
-            <Text>Name</Text>
-            <Text>Title</Text>
-            <br/>
-            <Text>$1,352</Text>
-          </Box>
-
-          <Box>
-            <Select>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </Select>
-          </Box>
-          <Box>
-            <Button>
-              Add to Bag
-            </Button>
-          </Box>
-        </Box>
-        {/* </Center> */}
+        <Grid templateColumns='repeat(4, 1fr)' gap={3} pl={130}  py={15}>
+ <GridItem w='60%' boxShadow='inner' rounded='md' bg='white' >
+    <Image src="https://bit.ly/dan-abramov"/>
+    <div style={{textAlign:"left"}}>
+      <Text as={"samp"}>New Season</Text>
+      <br/>
+      <Text as={"b"}>Mônot</Text>
+      <br/>
+      <Text as={"samp"}>denim corset top</Text>
+      <br/>
+      <p/>
+      <Text as={"abbr"}>$1,530</Text>
+      <br/>
+      <Select placeholder='Select Size' py={2} size="md" w="90%"  borderColor='black.500'>
+  <option value='option1'>Option 1</option>
+  <option value='option2'>Option 2</option>
+  <option value='option3'>Option 3</option>
+</Select>
+<br/>
+<button className={st.bt}>
+ <Text as={'samp'}>Add to Bag</Text>
+</button>
+      </div>
+      
+  </GridItem>
+  <GridItem w='60%' boxShadow='inner' rounded='md' bg='white' >
+    <Image src="https://bit.ly/dan-abramov"/>
+    <div style={{textAlign:"left"}}>
+      <Text as={"samp"}>New Season</Text>
+      <br/>
+      <Text as={"b"}>Mônot</Text>
+      <br/>
+      <Text as={"samp"}>denim corset top</Text>
+      <br/>
+      <p/>
+      <Text as={"abbr"}>$1,530</Text>
+      <br/>
+      <Select placeholder='Select Size' py={2} size="md" w="90%"  borderColor='black.500'>
+  <option value='option1'>Option 1</option>
+  <option value='option2'>Option 2</option>
+  <option value='option3'>Option 3</option>
+</Select>
+<br/>
+<button className={st.bt}>
+ <Text as={'samp'}>Add to Bag</Text>
+</button>
+      </div>
+      
+  </GridItem>
+  <GridItem w='60%' boxShadow='inner' rounded='md' bg='white' >
+    <Image src="https://bit.ly/dan-abramov"/>
+    <div style={{textAlign:"left"}}>
+      <Text as={"samp"}>New Season</Text>
+      <br/>
+      <Text as={"b"}>Mônot</Text>
+      <br/>
+      <Text as={"samp"}>denim corset top</Text>
+      <br/>
+      <p/>
+      <Text as={"abbr"}>$1,530</Text>
+      <br/>
+      <Select placeholder='Select Size' py={2} size="md" w="90%"  borderColor='black.500'>
+  <option value='option1'>Option 1</option>
+  <option value='option2'>Option 2</option>
+  <option value='option3'>Option 3</option>
+</Select>
+<br/>
+<button className={st.bt}>
+ <Text as={'samp'}>Add to Bag</Text>
+</button>
+      </div>
+      
+  </GridItem>
+  <GridItem w='60%' boxShadow='inner' rounded='md' bg='white' >
+    <Image src="https://bit.ly/dan-abramov"/>
+    <div style={{textAlign:"left"}}>
+      <Text as={"samp"}>New Season</Text>
+      <br/>
+      <Text as={"b"}>Mônot</Text>
+      <br/>
+      <Text as={"samp"}>denim corset top</Text>
+      <br/>
+      <p/>
+      <Text as={"abbr"}>$1,530</Text>
+      <br/>
+      <Select placeholder='Select Size' size="md" py={2} w="90%"  borderColor='black.500'>
+  <option value='option1'>Option 1</option>
+  <option value='option2'>Option 2</option>
+  <option value='option3'>Option 3</option>
+</Select>
+<br/>
+<button className={st.bt}>
+ <Text as={'samp'}>Add to Bag</Text>
+</button>
+      </div>
+      
+  </GridItem>
+</Grid><br/>
       </div>
     </>
   );

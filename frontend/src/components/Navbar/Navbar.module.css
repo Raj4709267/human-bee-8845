@@ -59,38 +59,7 @@
 }
 
 
-/* navmenu */
-.Menu {
-    display: flex;
-    height: 53px;
-    /* border: 1px solid rgb(255, 255, 255); */
-    gap: 2%;
-    width: 75%;
-}
 
-.Menu>div {
-    /* margin-left: 5%; */
-    height: 53px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 14px;
-    /* border: 1px solid red; */
-}
-
-.Menu>div:hover {
-    border-bottom: 1px solid #b9b9b9;
-}
-
-
-.menuBar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5% 0 5% ;
-    background: #ffffff;
-
-}
 
 /* hamburger */
 .Hamburger {

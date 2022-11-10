@@ -19,7 +19,6 @@ import { Signup } from "./Signup";
 import { useDispatch, useSelector } from "react-redux";
 import { logout_user } from "../../Redux/Auth/action";
 import Menu from "./Menu";
-import Search from "./Search";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Hamburger from "./Hamburger";
 
@@ -131,12 +130,9 @@ function Navbar() {
           </div>
         </div>
       </AccordionItem>
-      <div className={style.menuBar}>
-        <div className={style.Menu}>
-          <Menu />
-        </div>
-        <Search />
-      </div>
+
+      <Menu />
+
       <div>
         <Hamburger isOpen={isOpen} setOpen={setOpen} />
       </div>

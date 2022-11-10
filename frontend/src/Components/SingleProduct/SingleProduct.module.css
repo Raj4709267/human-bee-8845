@@ -4,6 +4,32 @@
 .sg {
   border: 1px solid black;
 }
+.sizeBox{
+  border: 3px solid black;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+.img_Box{
+  border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  margin-top: 90px;
+  height: 230px;
+}
+.email_box{
+  border: 1px solid ;
+  width: 35%;
+  height: 500px;
+margin: auto;
+
+margin-top: 120px;
+}
+.radio_box{
+ 
+  width: 60%;
+  margin: auto;
+}
 
 @media only screen and (min-width: 0px) and (max-width: 500px) {
   .main {

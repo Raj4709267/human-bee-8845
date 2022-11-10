@@ -2,7 +2,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { SliderData } from "./SliderData";
-import { BiHeart } from "react-icons/bi";
+import { BiHeart,BiStar,BiDockTop,BiBandAid ,BiEnvelope,BiPhone} from "react-icons/bi";
+import React from "react";
+
 import {
   SimpleGrid,
   Box,
@@ -10,6 +12,9 @@ import {
   Text,
   Select,
   Button,
+  Flex,
+  Link,
+  Radio, RadioGroup,
   Tabs,
   TabList,
   TabPanels,
@@ -17,10 +22,14 @@ import {
   TabPanel,
   ListItem,
   UnorderedList,
+  Spacer,
+  Stack,
+  Checkbox,
 } from "@chakra-ui/react";
 import Style from "./SingleProduct.module.css";
 
 const SingleProduct = () => {
+  const [value, setValue] = React.useState('1')
   const settings = {
     dots: true,
     infinite: true,
@@ -206,24 +215,163 @@ const SingleProduct = () => {
             </TabPanel>
             <TabPanel>
               <SimpleGrid columns={[1, 1, 3]} spacing="40px">
-                <Box bg="tomato" height="400px">
+                <Box height="400px">
                   <Text fontWeight="bold" mb="10px">
                     Measurements
                   </Text>
+                  <Text>Product measurements for size (IT)</Text>
+                  <Box w="80px" mt="20px" className={Style.sizeBox}>
+                    40
+                  </Box>
+                  <Flex w="50%" mt="20px">
+                    <Text>Circumference</Text>
+                    <Spacer />
+                    <Text>35 cm</Text>
+                  </Flex>
+                  <Flex w="50%">
+                    <Text>Heel</Text>
+                    <Spacer />
+                    <Text>7.7 cm</Text>
+                  </Flex>
+                  <Flex w="50%">
+                    <Text>Height</Text>
+                    <Spacer />
+                    <Text>30 cm</Text>
+                  </Flex>
                 </Box>
-                <Box bg="tomato" height="400px"></Box>
-                <Box bg="tomato" height="400px"></Box>
+                <Spacer />
+                <Box height="400px">
+                  <Image
+                    boxSize="100%"
+                    src="https://bit.ly/dan-abramov"
+                    alt="Dan Abramov"
+                  />
+                </Box>
               </SimpleGrid>
             </TabPanel>
             <TabPanel>
               <SimpleGrid columns={[1, 1, 3]} spacing="40px">
-                <Box bg="tomato" height="400px"></Box>
-                <Box bg="tomato" height="400px"></Box>
-                <Box bg="tomato" height="400px"></Box>
+                <Box >
+                  <Text fontWeight="bold" mt="10px" mb="10px">
+                    We've got your back
+                  </Text>
+                  <UnorderedList>
+                    <ListItem>
+                      One delivery fee to most locations (check our Orders &
+                      Delivery page)
+                    </ListItem>
+                    <ListItem>
+                      Free returns within 14 days (excludes final sale,
+                      customised pieces, face masks and certain beauty products
+                      containing hazardous or flammable materials, like
+                      fragrances and aerosols)
+                    </ListItem>
+                    <ListItem>
+                      All our deliveries are climate conscious
+                    </ListItem>
+                  </UnorderedList>
+                  <Text fontWeight="bold" mt="30px" mb="10px">
+                    Import duties information
+                  </Text>
+                  <Text>
+                    Let us handle the legwork. Delivery duties are included in
+                    the item price when shipping to all EU countries (excluding
+                    the Canary Islands), plus The United Kingdom, USA, Canada,
+                    China Mainland, Australia, New Zealand, Puerto Rico,
+                    Switzerland, Singapore, Republic Of Korea, Kuwait, Mexico,
+                    Qatar, India, Norway, Saudi Arabia, Taiwan Region, Thailand,
+                    U.A.E., Japan, Brazil, Isle of Man, San Marino, Colombia,
+                    Chile, Argentina, Egypt, Lebanon, Hong Kong SAR and Bahrain.
+                    All import duties are included in your order – the price you
+                    see is the price you pay
+                  </Text>
+                </Box>
+                <Box  height="400px">
+                <Text fontWeight="bold" mt="10px" mb="10px">
+                    We've got your back
+                  </Text>
+                  <Text>Express: Nov 14 - Nov 21</Text>
+                  <Text mt="20px">Sending from our marketplace seller in Netherlands</Text>
+                </Box>
+                <Box  height="400px">
+                <Text fontWeight="bold" mt="30px" mb="10px">
+                    Hightlights
+                  </Text>
+                  <UnorderedList>
+                    <ListItem><Link>Orders & delivery</Link></ListItem>
+                    <ListItem><Link>Returns & refunds</Link></ListItem>
+                    <ListItem><Link>Duties & taxes</Link></ListItem>
+                    <ListItem><Link>Climate Conscious delivery</Link></ListItem>
+                  </UnorderedList>
+                </Box>
               </SimpleGrid>
             </TabPanel>
           </TabPanels>
         </Tabs>
+        <Box textAlign="left" mt="40px">
+        <Text fontSize="25px">Why FARFETCH?</Text>
+       
+<SimpleGrid columns={[1, null, 3]} spacing='40px' mt="20px">
+  <Box >
+  <BiBandAid fontSize="30px"/>
+  <Text mt="15px" fontWeight="bold">The one that you want? We've got it.</Text>
+  <Text>Shop over 100,000 styles</Text>
+  </Box>
+  <Box >
+  <BiStar fontSize="30px" />
+  <Text mt="15px" fontWeight="bold">4.7/5 stars and 25,000+ reviews</Text>
+  <Text>You know you can trust us</Text>
+  </Box>
+  <Box >
+  <BiDockTop fontSize="30px"/>
+  <Text mt="15px" fontWeight="bold">Free global returns collection service</Text>
+  <Text>Changed your mind? No problem</Text>
+  </Box>
+ 
+</SimpleGrid>
+        </Box>
+        <Box className={Style.img_Box}>
+          <Image w="100%" h="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCpKoGmRVSw67I-uDr_DdCXoaW-otx9SOJOg0qCVV0&s"/>
+        </Box>
+        <Box textAlign="left" mt="80px">
+        <Text fontSize="25px">Contact us</Text>
+       
+            <SimpleGrid columns={[1, 2, 2]} spacing='40px' mt="20px" mb="20px">
+  <Box border="1px solid black" p="10px">
+  <BiEnvelope fontSize="30px"/>
+  <Text mt="15px" >EMAIL US</Text>
+  <Text mt="15px">Get in touch by email</Text>
+  <Text mt="15px">customerservice@farfetch.com</Text>
+  </Box>
+  
+  <Box border="1px solid black" p="10px">
+  <BiPhone fontSize="30px" />
+  <Text mt="15px" >ORDER BY PHONE</Text>
+  <Text mt="15px">Available Monday to Friday, 08:00 - 21:00 EST</Text>
+  <Text mt="15px">+1 646 791 3768</Text>
+  </Box>
+ 
+ 
+            </SimpleGrid>
+        </Box>
+        <Box className={Style.email_box}>
+           <Text fontSize="40px" fontWeight="bold" lineHeight="50px"> GET 10% OFF YOUR FIRST ORDER</Text>
+           <Text w="80%" margin="auto" mt="20px">Sign up for promotions, tailored new arrivals, stock updates and more – straight to your inbox</Text>
+           <Box className={Style.radio_box} mt="30px">
+           <RadioGroup onChange={setValue} value={value} >
+      <Stack direction='row'>
+        <Radio value='1'>Womenswear</Radio>
+        <Radio value='2'>Menswear</Radio>
+        
+      </Stack>
+    </RadioGroup>
+           </Box>
+           <Text textAlign="left" fontSize="18px" mt="20px" ml="10px">GET UPDATES BY</Text>
+           <Box  textAlign="left" border="1px solid red">
+           <Checkbox defaultChecked >Checkbox</Checkbox>
+           </Box>
+           
+        </Box>
       </Box>
     </>
   );

@@ -37,7 +37,7 @@ UserController.post("/signup", (req, res) => {
       }
       if (result === true) {
         const token = jwt.sign({ userId: user._id }, process.env.SECRETKEY);
-        res.send({ msg: "login successfull", token: token,userId:user._id });
+        res.send({ msg: "login successfull", token: token,userId:user._id,name:user.name });
       } else {
         res.send({ msg: "plz login again " });
       }

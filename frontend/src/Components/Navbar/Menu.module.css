@@ -1,0 +1,111 @@
+.container {
+    background: #ffffff;
+}
+
+.menuBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5% 0 5%;
+
+}
+
+
+
+/* navmenu */
+.Menu {
+    display: flex;
+    height: 53px;
+    /* border: 1px solid rgb(255, 255, 255); */
+    gap: 2%;
+    width: 75%;
+    
+}
+
+.Menu>div {
+    /* margin-left: 5%; */
+    height: 53px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    /* border: 1px solid red; */
+}
+
+.Menu>div:hover {
+    border-bottom: 1px solid #b9b9b9;
+}
+
+
+.subMenu {
+    position: absolute;
+    top: 100%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    width: 100%;
+    /* left: 5%; */
+    left: 0;
+    margin: auto;
+    /* border-bottom: 1px solid #9e9e9e; */
+    padding: 0 5% 20px 5%;
+    padding-top: 10px;
+    box-shadow: rgb(66, 66, 66) 0px 20px 30px -10px;
+}
+
+.subMenuInside {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* .subMenuInside>div {
+    border: 1px solid rgb(153, 255, 0);
+} */
+
+.subMenuInside>div:first-child {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding-top: 20px;
+}
+
+.subMenuInside>div:first-child>div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.subMenuInside>div:first-child>div h1 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.subMenuInside>div:first-child>div a {
+    margin-bottom: 10px;
+}
+.subMenuInside>div:first-child>div a:hover {
+    text-decoration: underline;
+}
+
+.subMenuInside>div:last-child {
+    width: 35%;
+    text-align: left;
+}
+
+.subMenuInside>div:last-child p {
+    margin: 5px 0 2px 0;
+}
+.subMenuInside>div:last-child h1{
+    font-size: 18px;
+}
+.subMenuInside>div:last-child a {
+    font-style: italic;
+}
+
+
+@media (min-width: 100px) and (max-width: 1000px) {
+    .menuBar {
+        display: none;
+    }
+}

@@ -8,6 +8,7 @@ const cors = require("cors");
 const {ProductRouter}=require("./Routes/product.routes")
 const {UserController}=require("./Routes/user.routes");
 const {connection} = require("./Config/db");
+const { WishlistRouter } = require("./Routes/Wishlist.routes");
 
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 const PORT=process.env.PORT || 8080
 app.use("/user",UserController)
 app.use("/product",ProductRouter)
+app.use("/wishlist",WishlistRouter)
 
 
 app.listen(PORT,async()=>{

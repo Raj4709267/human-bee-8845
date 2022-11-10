@@ -1,12 +1,13 @@
 import React from "react";
-import img1 from "../Assets/Kids/kid1.webp";
-import img2 from "../Assets/Kids/kid2.jpeg";
-import img3 from "../Assets/Kids/kid3.webp";
-import best1 from "../Assets/Kids/best1.webp";
-import best2 from "../Assets/Kids/best2.webp";
-import best3 from "../Assets/Kids/best3.webp";
-import middle1 from "../Assets/Kids/middle1.webp";
-import middle2 from "../Assets/Kids/middle2.webp";
+import img1 from "../Assets/Womens/women1.webp";
+import img2 from "../Assets/Womens/women2.webp";
+import img3 from "../Assets/Womens/women3.webp";
+import shopBy1 from "../Assets/Womens/women_shopBy1.webp";
+import shopBy2 from "../Assets/Womens/women_shopBy2.webp";
+import shopBy3 from "../Assets/Womens/women_shopBy3.webp";
+import brandBy1 from "../Assets/Womens/women_brand1.jpeg";
+import brandBy2 from "../Assets/Womens/women_brand2.jpeg";
+import brandBy3 from "../Assets/Womens/women_brand3.jpeg";
 import {
   Stack,
   Flex,
@@ -20,9 +21,9 @@ import {
 import ProductList from "../Components/ProductList";
 import ShopBy from "../Components/ShopBy";
 import QuerySection from "../Components/QuerySection";
-import { kidsProduct1 } from "../Data/ProductData";
+import { womenProductList1, womenProductList2 } from "../Data/ProductData";
 
-const Kids = () => {
+const Womens = () => {
   return (
     <Stack
       spacing={["50px", "50px", "100px"]}
@@ -88,12 +89,12 @@ const Kids = () => {
           p={["1rem", "1rem", "0 1.2rem"]}
         >
           <Heading fontWeight="400" size={["md", "lg"]}>
-            Dress for the occasion
+            Dancefloor ready: the hottest party shoes
           </Heading>
 
           <Text lineHeight={["25px", "27px"]} textAlign="center">
-            Party dresses, mini-me suits and coordinating accessories by
-            Balmain, Versace and more
+            Trending sneakers, modern cowboy boots and chunky loafers — unbox
+            this season’s best styles
           </Text>
 
           <Button colorScheme="black" variant="outline">
@@ -106,50 +107,10 @@ const Kids = () => {
         </Box>
       </Flex>
 
-      {/* Shop by category */}
-      <Box cursor="pointer">
-        <Text
-          align="center"
-          m="2rem 0px"
-          fontSize={["1.5rem", "1.7rem"]}
-          fontWeight="400"
-        >
-          The Best Of New In
-        </Text>
-        <ShopBy
-          titles={["BABY", "KIDS", "TEENS"]}
-          description={[
-            "Changing bags and all that goes in them",
-            "Transeasonal layers, sets and sneakers",
-            "From snow boots to tracksuits",
-          ]}
-          images={[best1, best2, best3]}
-        />
-      </Box>
-
-      {/* Middle banner */}
-      <Flex gap={["1.5rem", "2rem"]}>
-        <Box cursor="pointer">
-          <Image src={middle1} />
-          <Text mt="1.5rem">THE SNEAKER EDIT</Text>
-          <Text fontSize="0.8rem">
-            Hype styles including Off-White’s Out of Office sneakers
-          </Text>
-        </Box>
-
-        <Box cursor="pointer">
-          <Image src={middle2} />
-          <Text mt="1.5rem">ALL THE ACCESSORIES</Text>
-          <Text fontSize="0.8rem">
-            Fluffy hats, logo bags and more for the new season
-          </Text>
-        </Box>
-      </Flex>
-
       {/* Product List 1 */}
       <ProductList
-        title="Trending now: our most-wanted gifts"
-        data={kidsProduct1}
+        title="New in: hand-picked daily from the world’s best brands and boutiques"
+        data={womenProductList1}
       />
 
       {/* Banner 3 */}
@@ -184,9 +145,56 @@ const Kids = () => {
         </Stack>
       </Flex>
 
+      {/* Shop by category */}
+      <Box cursor="pointer">
+        <Text
+          align="center"
+          m="2rem 0px"
+          fontSize={["1.5rem", "1.7rem"]}
+          fontWeight="400"
+        >
+          Shop gifts by category
+        </Text>
+        <ShopBy
+          titles={[
+            "HIGH-GLAMOUR GIFTS",
+            "100 ICONIC BAGS",
+            "FINE JEWELRY & WATCHES",
+          ]}
+          images={[shopBy1, shopBy2, shopBy3]}
+        />
+      </Box>
+
+      {/* Product List 2 */}
+      <ProductList
+        title="Discover: trending gifts"
+        data={womenProductList2}
+      />
+
+      {/* Shop by brands */}
+      <Box cursor="pointer">
+        <Text
+          align="center"
+          m="2rem 0px"
+          fontSize={["1.5rem", "1.7rem"]}
+          fontWeight="400"
+        >
+          Shop gifts by brand
+        </Text>
+        <ShopBy
+          titles={["PRADA", "AREA", "ACNE STUDIO"]}
+          description={[
+            "This way for editor-approved staples",
+            "The modern party dress code",
+            "Strong outerwear and statement accessories",
+          ]}
+          images={[brandBy1, brandBy2, brandBy3]}
+        />
+      </Box>
+
       <QuerySection />
     </Stack>
   );
 };
 
-export default Kids;
+export default Womens;

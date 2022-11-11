@@ -3,7 +3,7 @@ for backend api data
 
 
 /user/signup    -POST 
-/user/signin    -POST
+/user/login    -POST
 
 
 /product/mens    -GET

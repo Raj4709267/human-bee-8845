@@ -13,7 +13,7 @@ const ProductItem = ({ item }) => {
   };
   return (
     <Box
-      border="1px solid red"
+      // border="1px solid red"
       cursor="pointer"
       backgroundColor="gray.50"
     >

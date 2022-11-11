@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-function PrivetRoute({ children }) {
+function PrivetaRoute({ children }) {
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
   console.log(isAuth);
   if (!isAuth) {
@@ -11,4 +11,4 @@ function PrivetRoute({ children }) {
   return children;
 }
 
-export default PrivetRoute;
+export default PrivetaRoute;

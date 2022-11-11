@@ -129,7 +129,7 @@
     /* padding: 5px; */
     width: 250px;
 }
-.input>input{
+.input input{
     all:unset;
     text-align: left;
 }

@@ -32,14 +32,16 @@ function Navbar() {
   }
 
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  const { userID } = useSelector((store) => store.AuthReducer.userData);
+  const { name } = useSelector((store) => store.AuthReducer.userData);
+  const ok = useSelector((store) => store.AuthReducer.userData);
+  console.log(ok)
 
   return (
     <Accordion allowToggle={true} className={style.navbar}>
       <AccordionItem>
         <AccordionPanel pb={4} className={style.navProfileMain}>
           <div className={style.navProfile}>
-            <h1>{userID}</h1>
+            <h1>{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
             <Link to="/profile">
               <AccordionButton> My Profile</AccordionButton>
             </Link>
@@ -109,7 +111,7 @@ function Navbar() {
                 >
                   {" "}
                   <BiUser size={"1.5em"} />
-                  <p className={style.userName}>{userID}</p>
+                  <p className={style.userName}>{name.charAt(0).toUpperCase() + name.slice(1)}</p>
                   {isProfile ? (
                     <BiChevronUp size={"1.5em"} />
                   ) : (

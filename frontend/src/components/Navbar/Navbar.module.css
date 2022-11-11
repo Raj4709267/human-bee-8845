@@ -145,6 +145,10 @@
         display: none;
     }
 }
+.userName{
+    font-size: 18px;
+    margin: 0 8px 0 8px;
+}
 
 @media (min-width: 100px) and (max-width: 700px) {
    

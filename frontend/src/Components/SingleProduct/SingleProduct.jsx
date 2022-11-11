@@ -2,7 +2,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { SliderData } from "./SliderData";
-import { BiHeart,BiStar,BiDockTop,BiBandAid ,BiEnvelope,BiPhone} from "react-icons/bi";
+import {
+  BiHeart,
+  BiStar,
+  BiDockTop,
+  BiBandAid,
+  BiEnvelope,
+  BiPhone,
+} from "react-icons/bi";
 import React from "react";
 
 import {
@@ -14,7 +21,6 @@ import {
   Button,
   Flex,
   Link,
-  Radio, RadioGroup,
   Tabs,
   TabList,
   TabPanels,
@@ -23,13 +29,11 @@ import {
   ListItem,
   UnorderedList,
   Spacer,
-  Stack,
-  Checkbox,
 } from "@chakra-ui/react";
 import Style from "./SingleProduct.module.css";
+import Form from "../SingleProduct/Form";
 
 const SingleProduct = () => {
-  const [value, setValue] = React.useState('1')
   const settings = {
     dots: true,
     infinite: true,
@@ -40,7 +44,7 @@ const SingleProduct = () => {
   return (
     <>
       <Box w="90%" m="auto" display="flex" className={Style.main}>
-        <Box border="1px solid black" w="65%" className={Style.main2}>
+        <Box w="65%" height="550px" className={Style.main2}>
           {/* <SimpleGrid columns={[1, 1, 2]} spacing="10px" className={Style.sg}>
             <Box
               border="1px solid black"
@@ -94,12 +98,12 @@ const SingleProduct = () => {
           </SimpleGrid> */}
 
           <div>
-            <Slider {...settings} style={{ height: "450px" }}>
+            <Slider {...settings} style={{ height: "480px" }}>
               {SliderData.map((el) => {
                 return (
                   <div>
                     <img
-                      style={{ height: "400px", margin: "auto" }}
+                      style={{ height: "500px", margin: "auto" }}
                       src={el.img_url}
                     />
                   </div>
@@ -109,9 +113,8 @@ const SingleProduct = () => {
           </div>
         </Box>
         <Box
-          border="1px solid black"
+          // border="1px solid black"
           w="35%"
-          height="600"
           className={Style.desc}
         >
           <Box textAlign="left" ml="10px">
@@ -162,7 +165,7 @@ const SingleProduct = () => {
           </Box>
         </Box>
       </Box>
-      <Box w="90%" m="auto" mt="50px">
+      <Box w="90%" m="auto" mt="50px" className={Style.tabBoxes}>
         <Tabs>
           <TabList>
             <Tab>THE DETAILS</Tab>
@@ -190,7 +193,7 @@ const SingleProduct = () => {
                     <ListItem>Facilisis in pretium nisl aliquet</ListItem>
                   </UnorderedList>
                 </Box>
-                <Box height="400px">
+                <Box height="400px" className={Style.tabBox2}>
                   <Text fontWeight="bold" mb="10px">
                     Composition
                   </Text>
@@ -204,7 +207,7 @@ const SingleProduct = () => {
                   <Text>FARFETCH ID: 18033877</Text>
                   <Text>Brand style ID: A11ABTBUP75CH222968001</Text>
                 </Box>
-                <Box height="400px">
+                <Box height="400px" className={Style.tabBox3}>
                   <Image
                     boxSize="100%"
                     src="https://bit.ly/dan-abramov"
@@ -240,7 +243,7 @@ const SingleProduct = () => {
                   </Flex>
                 </Box>
                 <Spacer />
-                <Box height="400px">
+                <Box height="400px" className={Style.size_Box2}>
                   <Image
                     boxSize="100%"
                     src="https://bit.ly/dan-abramov"
@@ -251,7 +254,7 @@ const SingleProduct = () => {
             </TabPanel>
             <TabPanel>
               <SimpleGrid columns={[1, 1, 3]} spacing="40px">
-                <Box >
+                <Box>
                   <Text fontWeight="bold" mt="10px" mb="10px">
                     We've got your back
                   </Text>
@@ -286,22 +289,32 @@ const SingleProduct = () => {
                     see is the price you pay
                   </Text>
                 </Box>
-                <Box  height="400px">
-                <Text fontWeight="bold" mt="10px" mb="10px">
+                <Box height="400px">
+                  <Text fontWeight="bold" mt="10px" mb="10px">
                     We've got your back
                   </Text>
                   <Text>Express: Nov 14 - Nov 21</Text>
-                  <Text mt="20px">Sending from our marketplace seller in Netherlands</Text>
+                  <Text mt="20px">
+                    Sending from our marketplace seller in Netherlands
+                  </Text>
                 </Box>
-                <Box  height="400px">
-                <Text fontWeight="bold" mt="30px" mb="10px">
+                <Box height="400px" className={Style.returns_Box3}>
+                  <Text fontWeight="bold" mt="30px" mb="10px">
                     Hightlights
                   </Text>
                   <UnorderedList>
-                    <ListItem><Link>Orders & delivery</Link></ListItem>
-                    <ListItem><Link>Returns & refunds</Link></ListItem>
-                    <ListItem><Link>Duties & taxes</Link></ListItem>
-                    <ListItem><Link>Climate Conscious delivery</Link></ListItem>
+                    <ListItem>
+                      <Link>Orders & delivery</Link>
+                    </ListItem>
+                    <ListItem>
+                      <Link>Returns & refunds</Link>
+                    </ListItem>
+                    <ListItem>
+                      <Link>Duties & taxes</Link>
+                    </ListItem>
+                    <ListItem>
+                      <Link>Climate Conscious delivery</Link>
+                    </ListItem>
                   </UnorderedList>
                 </Box>
               </SimpleGrid>
@@ -309,70 +322,62 @@ const SingleProduct = () => {
           </TabPanels>
         </Tabs>
         <Box textAlign="left" mt="40px">
-        <Text fontSize="25px">Why FARFETCH?</Text>
-       
-<SimpleGrid columns={[1, null, 3]} spacing='40px' mt="20px">
-  <Box >
-  <BiBandAid fontSize="30px"/>
-  <Text mt="15px" fontWeight="bold">The one that you want? We've got it.</Text>
-  <Text>Shop over 100,000 styles</Text>
-  </Box>
-  <Box >
-  <BiStar fontSize="30px" />
-  <Text mt="15px" fontWeight="bold">4.7/5 stars and 25,000+ reviews</Text>
-  <Text>You know you can trust us</Text>
-  </Box>
-  <Box >
-  <BiDockTop fontSize="30px"/>
-  <Text mt="15px" fontWeight="bold">Free global returns collection service</Text>
-  <Text>Changed your mind? No problem</Text>
-  </Box>
- 
-</SimpleGrid>
+          <Text fontSize="25px">Why FARFETCH?</Text>
+
+          <SimpleGrid columns={[1, null, 3]} spacing="40px" mt="20px">
+            <Box>
+              <BiBandAid fontSize="30px" />
+              <Text mt="15px" fontWeight="bold">
+                The one that you want? We've got it.
+              </Text>
+              <Text>Shop over 100,000 styles</Text>
+            </Box>
+            <Box>
+              <BiStar fontSize="30px" />
+              <Text mt="15px" fontWeight="bold">
+                4.7/5 stars and 25,000+ reviews
+              </Text>
+              <Text>You know you can trust us</Text>
+            </Box>
+            <Box>
+              <BiDockTop fontSize="30px" />
+              <Text mt="15px" fontWeight="bold">
+                Free global returns collection service
+              </Text>
+              <Text>Changed your mind? No problem</Text>
+            </Box>
+          </SimpleGrid>
         </Box>
         <Box className={Style.img_Box}>
-          <Image w="100%" h="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCpKoGmRVSw67I-uDr_DdCXoaW-otx9SOJOg0qCVV0&s"/>
+          <Image
+            w="100%"
+            h="100%"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCpKoGmRVSw67I-uDr_DdCXoaW-otx9SOJOg0qCVV0&s"
+          />
         </Box>
         <Box textAlign="left" mt="80px">
-        <Text fontSize="25px">Contact us</Text>
-       
-            <SimpleGrid columns={[1, 2, 2]} spacing='40px' mt="20px" mb="20px">
-  <Box border="1px solid black" p="10px">
-  <BiEnvelope fontSize="30px"/>
-  <Text mt="15px" >EMAIL US</Text>
-  <Text mt="15px">Get in touch by email</Text>
-  <Text mt="15px">customerservice@farfetch.com</Text>
-  </Box>
-  
-  <Box border="1px solid black" p="10px">
-  <BiPhone fontSize="30px" />
-  <Text mt="15px" >ORDER BY PHONE</Text>
-  <Text mt="15px">Available Monday to Friday, 08:00 - 21:00 EST</Text>
-  <Text mt="15px">+1 646 791 3768</Text>
-  </Box>
- 
- 
-            </SimpleGrid>
-        </Box>
-        <Box className={Style.email_box}>
-           <Text fontSize="40px" fontWeight="bold" lineHeight="50px"> GET 10% OFF YOUR FIRST ORDER</Text>
-           <Text w="80%" margin="auto" mt="20px">Sign up for promotions, tailored new arrivals, stock updates and more – straight to your inbox</Text>
-           <Box className={Style.radio_box} mt="30px">
-           <RadioGroup onChange={setValue} value={value} >
-      <Stack direction='row'>
-        <Radio value='1'>Womenswear</Radio>
-        <Radio value='2'>Menswear</Radio>
-        
-      </Stack>
-    </RadioGroup>
-           </Box>
-           <Text textAlign="left" fontSize="18px" mt="20px" ml="10px">GET UPDATES BY</Text>
-           <Box  textAlign="left" border="1px solid red">
-           <Checkbox defaultChecked >Checkbox</Checkbox>
-           </Box>
-           
+          <Text fontSize="25px">Contact us</Text>
+
+          <SimpleGrid columns={[1, 2, 2]} spacing="40px" mt="20px" mb="20px">
+            <Box border="1px solid black" p="10px">
+              <BiEnvelope fontSize="30px" />
+              <Text mt="15px">EMAIL US</Text>
+              <Text mt="15px">Get in touch by email</Text>
+              <Text mt="15px">customerservice@farfetch.com</Text>
+            </Box>
+
+            <Box border="1px solid black" p="10px">
+              <BiPhone fontSize="30px" />
+              <Text mt="15px">ORDER BY PHONE</Text>
+              <Text mt="15px">
+                Available Monday to Friday, 08:00 - 21:00 EST
+              </Text>
+              <Text mt="15px">+1 646 791 3768</Text>
+            </Box>
+          </SimpleGrid>
         </Box>
       </Box>
+      <Form />
     </>
   );
 };

@@ -13,13 +13,9 @@ import Review from "../Pages/Review";
 import ShippingAddress from "../Pages/ShippingAddress";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Womens from "../Pages/Womens";
-<<<<<<< HEAD
-import PrivateRoute from "./PrivateRoute";
-=======
 import WomensProductPage from "../Pages/WomensProductPage";
 import KidsProductPage from "../Pages/KidsProductPage";
-import PrivetRoute from "./PrivetRoute";
->>>>>>> fad21a7992f378bb4e25b2029245b6854d3ee144
+import PrivateRoute from "./PrivateRoute";
 
 const AllRoutes = () => {
   return (

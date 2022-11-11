@@ -1,13 +1,13 @@
 import React, {  useState } from 'react';
 import { AiOutlineCreditCard } from 'react-icons/ai';
-// import styles from '../../css/payments.module.css';
+import styles from '../styles/payment.module.css';
 import { useNavigate } from "react-router-dom";
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const Payment = () => {
+export const Payment = () => {
     const navigate = useNavigate();
-    // const cartItems = useSelector(state => state.cart);
-    // console.log("cart", cartItems);
+    const cartItems = useSelector((store) => store.cartReducer.cart);
+    console.log("cart", cartItems);
     const [ query, setQuery ] = useState({
         name: '',
         cardnumber: '',
@@ -21,37 +21,37 @@ const Payment = () => {
     };
 
     const handleContinue = () => {
-        // if (cartItems.length === 0) {
-        //     alert("Please Add to Bag First");
-        //     return navigate("/");
-        // }
-        // else if (query.cardnumber === '' || query.code === '' || query.monthday === '' || query.name === '') {
-        //     return alert("Please Fill the All Details");
-        // }
+        if (cartItems.length === 0) {
+            alert("Please Add to Bag First");
+            return navigate("/");
+        }
+        else if (query.cardnumber === '' || query.code === '' || query.monthday === '' || query.name === '') {
+            return alert("Please Fill the All Details");
+        }
         alert('Your Payment Has successfully done');
         navigate("/");
     };
 
  
 
-    //total price
-    // const total_price = cartItems.reduce((acc, current) => {
-    //     return acc + current.price;
-    // }, 24);
+    // total price
+    const total_prize = cartItems.reduce((acc, current) => {
+        return acc + current.prize;
+    }, 24);
     return (
-        <div>
+        <div className={ styles.paymentContainer }>
             <p>Select your payment method</p>
-            <div>
+            <div className={ styles.PaymentOptions }>
                 <div>
-                    <img width="200px" src="https://th.bing.com/th/id/R.b6dfa6674e59c943dc7f912d173e6499?rik=oMtZKSuBEb%2frsg&riu=http%3a%2f%2fcdn1.tnwcdn.com%2fwp-content%2fblogs.dir%2f1%2ffiles%2f2014%2f04%2fScreen-Shot-2014-04-30-at-18.18.55.png&ehk=cVVxkeWChurvuyiOf7RHsKoXDoJu1bX0abtn0%2fOqI7I%3d&risl=&pid=ImgRaw&r=0" alt="paypal" />
+                    <img src="http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/04/Screen-Shot-2014-04-30-at-18.18.55.png" alt="paypal" />
                 </div>
                 <div>
                     <p ><AiOutlineCreditCard />Debit or credit card</p>
                 </div>
             </div>
 
-            <div>
-                <div>
+            <div className={ styles.PaymentBox }>
+                <div className={ styles.cardForm }>
                     <p>CARD DETAILS</p>
                     <br />
                     <div>
@@ -59,7 +59,7 @@ const Payment = () => {
                         <input type="text" name='name' onChange={ handleChange } />
                     </div>
 
-                    <div>
+                    <div className={ styles.cardNum_ExpDD }>
                         <div>
                             <p>Card number</p>
                             <input type="text" name='cardnumber' onChange={ handleChange } />
@@ -71,7 +71,7 @@ const Payment = () => {
                     </div>
 
                     <div>
-                        <p>Security code</p>
+                        <p>Security Code</p>
                         <input type="text" name='code' onChange={ handleChange } />
                     </div>
 
@@ -84,26 +84,26 @@ const Payment = () => {
                 </div>
 
                 <div>
-                    <div>
+                    <div className={ styles.Summary }>
                         <h3>Summary</h3>
-                        <div>
+                        <div className={ styles.amountDiv }>
                             <p>subtotal</p>
-                            {/* <p>{ `${total_price - 24}.00` }</p> */}
+                            <p>{ `${total_prize - 24}.00` }</p>
                         </div>
-                        <div>
+                        <div className={ styles.amountDiv }>
                             <p>Delivery</p>
-                            {/* <p>{ total_price !== 24 ? `$24.0` : "00.00" }</p> */}
+                            <p>{ total_prize !== 24 ? `$24.0` : "00.00" }</p>
                         </div>
                         <hr />
-                        <div>
+                        <div className={ styles.amountDiv }>
                             <p>Total</p>
                             <p>
-                                {/* USD ${ total_price == 24 ? `00` : total_price }.00 */}
+                                USD ${ total_prize == 24 ? `00` : total_prize }.00
                                 <br />
                                 Import duties included
                             </p>
                         </div>
-                        <button onClick={ handleContinue }>
+                        <button onClick={ handleContinue } className={ styles.checkoutBtn }>
                             Save and Continue
                         </button>
                     </div>

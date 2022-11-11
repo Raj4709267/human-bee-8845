@@ -40,23 +40,23 @@ function Navbar() {
         <AccordionPanel pb={4} className={style.navProfileMain}>
           <div className={style.navProfile}>
             <h1>{userID}</h1>
-            <Link to="/">
+            <Link to="/profile">
               <AccordionButton> My Profile</AccordionButton>
             </Link>
 
-            <Link>
+            <Link to="/profile" >
               <AccordionButton>Details & password</AccordionButton>
             </Link>
-            <Link>
+            <Link to="/profile" >
               <AccordionButton>Orders & returns</AccordionButton>
             </Link>
-            <Link>
+            <Link to="/profile" >
               <AccordionButton>Refer a Friend</AccordionButton>
             </Link>
-            <Link>
+            <Link to="/profile" >
               <AccordionButton>My preferences</AccordionButton>
             </Link>
-            <Link>
+            <Link to="/profile" >
               <AccordionButton>Account credit</AccordionButton>
             </Link>
           </div>

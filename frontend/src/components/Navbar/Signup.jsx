@@ -27,8 +27,9 @@ import {
   signup_request,
   signup_success,
 } from "../../Redux/Auth/action";
+import { useNavigate } from "react-router-dom";
 
-function Signup() {
+function Signup({buttonName}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [signin, setSignin] = useState(true);
   const [signup, setSignup] = useState(false);
@@ -47,14 +48,16 @@ function Signup() {
   const finalRef = React.useRef(null);
   const dispatch = useDispatch();
   const { isLoading } = useSelector((store) => store.AuthReducer);
-
+  const navigate=useNavigate()
   const handelSignin = async () => {
     const payload = { email, password };
     dispatch(signin_request());
     return await axios
       .post("https://todoapp-1fsu.onrender.com/users/login", payload)
       .then((res) => {
+
         dispatch(signin_success(res.data));
+        navigate("/")
         SsetIsError(false);
         SsetIsSuccess(true);
       })
@@ -87,7 +90,10 @@ function Signup() {
   return (
     <>
       <p onClick={onOpen}>
-        <BiUser size={"1.5em"} />
+        {
+          buttonName?<Button background="black" color="white" _hover={{background:"rgb(84, 84, 84)"}}>LOGIN</Button>:<BiUser size={"1.5em"} />
+        }
+        
       </p>
 
       <Modal

@@ -72,6 +72,41 @@ export default function Hamburger({ isOpen, setOpen }) {
               Your bag <BiShoppingBag size={"1.5em"} />
             </Link>
           </div>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
+            <Link
+              to="/womens"
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "15px",
+              }}
+              onClick={() => onClose()}
+            >
+              Womens
+            </Link>{" "}
+            <Link
+              to={"/mens"}
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "15px",
+              }}
+              onClick={() => onClose()}
+            >
+              Mens
+            </Link>
+            <Link
+              to={"/kids"}
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "15px",
+              }}
+              onClick={() => onClose()}
+            >
+              Kids
+            </Link>
+          </div>
 
           <DrawerBody padding="0">
             <div className={navbarCss.Hamburger}>

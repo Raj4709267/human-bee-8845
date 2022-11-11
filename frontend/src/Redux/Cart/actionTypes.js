@@ -1,1 +1,2 @@
-export const CART="CART";
+export const ADD_CART="ADD_CART";
+export const REMOVE_DATA_FROM_CART="REMOVE_DATA_FROM_CART";

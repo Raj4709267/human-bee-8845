@@ -6,13 +6,20 @@ import Error from "../Pages/Error";
 import Homepage from "../Pages/Homepage";
 import Kids from "../Pages/Kids";
 import Mens from "../Pages/Mens";
+import MensProductPage from "../Pages/MensProductPage";
 import Payment from "../Pages/Payment";
 import Profile from "../Pages/Profile";
 import Review from "../Pages/Review";
 import ShippingAddress from "../Pages/ShippingAddress";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Womens from "../Pages/Womens";
+<<<<<<< HEAD
 import PrivateRoute from "./PrivateRoute";
+=======
+import WomensProductPage from "../Pages/WomensProductPage";
+import KidsProductPage from "../Pages/KidsProductPage";
+import PrivetRoute from "./PrivetRoute";
+>>>>>>> fad21a7992f378bb4e25b2029245b6854d3ee144
 
 const AllRoutes = () => {
   return (
@@ -53,8 +60,11 @@ const AllRoutes = () => {
           }
         />
         <Route path="/mens" element={<Mens />} />
+        <Route path="/mens/menswear" element={<MensProductPage />} />
         <Route path="/womens" element={<Womens />} />
+        <Route path="/womens/womenswear" element={<WomensProductPage />} />
         <Route path="/kids" element={<Kids />} />
+        <Route path="/kids/kidswear" element={<KidsProductPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Error />} />
       </Routes>

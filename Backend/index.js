@@ -9,7 +9,7 @@ const {ProductRouter}=require("./Routes/product.routes")
 const {UserController}=require("./Routes/user.routes");
 const {connection} = require("./Config/db");
 const { WishlistRouter } = require("./Routes/Wishlist.routes");
-
+const {CartRouter}=require("./Routes/Cart.routes")
 
 const app = express();
 
@@ -21,7 +21,7 @@ const PORT=process.env.PORT || 8080
 app.use("/user",UserController)
 app.use("/product",ProductRouter)
 app.use("/wishlist",WishlistRouter)
-
+app.use("/cart",CartRouter)
 
 app.listen(PORT,async()=>{
     try{

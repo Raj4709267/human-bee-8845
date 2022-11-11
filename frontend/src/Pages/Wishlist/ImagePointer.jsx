@@ -5,6 +5,7 @@ const ImagePointer = ({data}) => {
   return (
     <Box cursor="pointer" m="2rem 0px" backgroundColor="gray.50">
       {/* <Box>
+      b
         <Image
           src={images[0]}
           onMouseEnter={(e) => (e.target.src = "https://cdn-images.farfetch-contents.com/18/58/26/18/18582618_40851734_300.jpg")}

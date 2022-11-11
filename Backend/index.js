@@ -10,7 +10,6 @@ const {UserController}=require("./Routes/user.routes");
 const connection = require("./Config/db");
 const { WishlistRouter } = require("./Routes/Wishlist.routes");
 const {CartRouter}=require("./Routes/Cart.routes")
-const PORT=process.env.PORT || 8080
 
 const cors = require("cors");
 const app = express();

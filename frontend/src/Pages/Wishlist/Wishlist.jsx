@@ -64,7 +64,7 @@ const Wishlist = () => {
           <GridItem  boxShadow="inner" rounded="md" bg="white">
             <Image src="https://bit.ly/dan-abramov" />
             <div style={{ textAlign: "left" }}>
-              <Text as={"samp"} fontSize={"sm"}>New Season</Text>
+              <Text as={"samp"} fontSize={"sm"}>New Season-2</Text>
               <br />
               <Text as={"b"}>Golden grass</Text>
               <br />

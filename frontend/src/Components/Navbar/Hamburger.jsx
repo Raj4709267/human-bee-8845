@@ -16,7 +16,7 @@ import navbarCss from "../Navbar/Navbar.module.css";
 
 export default function Hamburger({ isOpen, setOpen }) {
   const btnRef = React.useRef();
-  const { userID } = useSelector((store) => store.AuthReducer.userData);
+  const { name } = useSelector((store) => store.AuthReducer.userData);
 
   function onClose() {
     setOpen(false);
@@ -44,7 +44,7 @@ export default function Hamburger({ isOpen, setOpen }) {
                 src="https://cdn-static.farfetch-contents.com/assets/portal-core-portal/static/images/favicon/Farfetch/apple-touch-icon-180x180.png"
                 alt="https://cdn-static.farfetch-contents.com/assets/portal-core-portal/static/images/favicon/Farfetch/apple-touch-icon-180x180.png"
               />
-              {userID && <p>{`Hi.. ${userID}`}</p>}
+              {name && <p>{`Hi.. ${name.charAt(0).toUpperCase() + name.slice(1)}`}</p>}
             </div>
           </DrawerHeader>
 

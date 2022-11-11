@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const PORT=process.env.PORT || 8080
 
 require("dotenv").config();
 
-const cors = require("cors");
 
 const {ProductRouter}=require("./Routes/product.routes")
 const {UserController}=require("./Routes/user.routes");
@@ -11,13 +11,13 @@ const connection = require("./Config/db");
 const { WishlistRouter } = require("./Routes/Wishlist.routes");
 const {CartRouter}=require("./Routes/Cart.routes")
 
+const cors = require("cors");
 const app = express();
 
 app.use(cors());
 
 app.use(bodyParser.json());
 app.use(express.json());
-const PORT=process.env.PORT || 8080
 app.use("/user",UserController)
 app.use("/product",ProductRouter)
 app.use("/wishlist",WishlistRouter)
@@ -34,3 +34,4 @@ app.listen(PORT,async()=>{
     }
     console.log(`Listning on ${PORT}`)
 })
+

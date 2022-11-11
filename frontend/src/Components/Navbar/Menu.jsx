@@ -8,10 +8,14 @@ function Menu() {
   const [show, setShow] = useState(0);
   // const [full,setFull]=useState(false);
 
-  const dropdown = (a) => {
-    setShow(a);
+  let id;
+  const dropdown = (number) => {
+    id = setTimeout(() => {
+      setShow(number);
+    }, 500);
   };
   const hide = () => {
+    clearTimeout(id);
     setShow(0);
   };
   return (
@@ -26,45 +30,102 @@ function Menu() {
                   <div>
                     <div>
                       <h1>22% OFF</h1>
-                      <Link>All 22% off</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All 22% off
+                      </Link>
 
-                      <Link>22% off clothing</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off clothing
+                      </Link>
 
-                      <Link>22% off sweaters</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off sweaters
+                      </Link>
 
-                      <Link>22% off jackets</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off jackets
+                      </Link>
 
-                      <Link>22% off T-shirts</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off T-shirts
+                      </Link>
 
-                      <Link>22% off shoes</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off shoes
+                      </Link>
 
-                      <Link>22% off trainers</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off trainers
+                      </Link>
 
-                      <Link>22% off bags</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off bags
+                      </Link>
 
-                      <Link>22% off accessories</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off accessories
+                      </Link>
                     </div>
                     <div>
                       <h1>22% OFF DESIGNERS</h1>
-                      <Link>Dsquared2</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dsquared2
+                      </Link>
 
-                      <Link>Common Projects</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Common Projects
+                      </Link>
 
-                      <Link>Emporio Armani</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Emporio Armani
+                      </Link>
 
-                      <Link>JW Anderson</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        JW Anderson
+                      </Link>
 
-                      <Link>Kenzo</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Kenzo
+                      </Link>
 
-                      <Link>Lanvin</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Lanvin
+                      </Link>
 
-                      <Link>Off-White</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Off-White
+                      </Link>
 
-                      <Link>Palm Angels</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Palm Angels
+                      </Link>
 
-                      <Link>Philipp Plein</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Philipp Plein
+                      </Link>
 
-                      <Link>Polo Ralph Lauren</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Polo Ralph Lauren
+                      </Link>
                     </div>
                     <div>{/* <h1>heading</h1> */}</div>
                   </div>
@@ -75,7 +136,7 @@ function Menu() {
                     />
                     <p>Womens</p>
                     <h1>22% Off</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -94,41 +155,98 @@ function Menu() {
                     <div>
                       <h1>GIFTS BY STYLE</h1>
 
-                      <Link>Classic</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Classic
+                      </Link>
 
-                      <Link>Cult</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Cult
+                      </Link>
 
-                      <Link>Minimalist</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Minimalist
+                      </Link>
 
-                      <Link>Streetwear</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Streetwear
+                      </Link>
                     </div>
                     <div>
                       <h1>GIFTS BY CATEGORY</h1>
 
-                      <Link>The season's most wanted</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The season's most wanted
+                      </Link>
 
-                      <Link>Gifts that do good</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gifts that do good
+                      </Link>
 
-                      <Link>Small leather goods</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Small leather goods
+                      </Link>
 
-                      <Link>99 hype sneakers</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        99 hype sneakers
+                      </Link>
 
-                      <Link>Sweats, knits & tees</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sweats, knits & tees
+                      </Link>
 
-                      <Link>The little things</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The little things
+                      </Link>
 
-                      <Link>Watches & jewellery</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Watches & jewellery
+                      </Link>
                     </div>
                     <div>
                       <h1>GIFTS BY DESIGNER</h1>
-                      <Link>Alexander McQueen</Link>
-                      <Link>Balenciaga</Link>
-                      <Link>Burberry</Link>
-                      <Link>Gucci</Link>
-                      <Link>Off-White</Link>
-                      <Link>Palm Angels</Link>
-                      <Link>Ferragamo</Link>
-                      <Link>Saint Laurent</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Alexander McQueen
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Balenciaga
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Burberry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gucci
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Off-White
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Palm Angels
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Ferragamo
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Saint Laurent
+                      </Link>
                     </div>
                   </div>
                   <div>
@@ -138,7 +256,7 @@ function Menu() {
                     />
                     <p>Soptlight On</p>
                     <h1>WATCHES & JEWELLERY</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -157,49 +275,106 @@ function Menu() {
                     <div>
                       <h1>WHAT'S NEW</h1>
 
-                      <Link>New in today</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New in today
+                      </Link>
 
-                      <Link>New in for you</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New in for you
+                      </Link>
 
-                      <Link>New: classic</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New: classic
+                      </Link>
 
-                      <Link>New: expressionist</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New: expressionist
+                      </Link>
 
-                      <Link>New: glamour</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New: glamour
+                      </Link>
 
-                      <Link>New: hype streetwear</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New: hype streetwear
+                      </Link>
 
-                      <Link>New: minimalism</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New: minimalism
+                      </Link>
 
-                      <Link>New: modern femininity</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New: modern femininity
+                      </Link>
                     </div>
                     <div>
                       <h1>TRENDING NOW</h1>
 
-                      <Link>The party edit</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The party edit
+                      </Link>
 
-                      <Link>New-season skiwear</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New-season skiwear
+                      </Link>
 
-                      <Link>The puffer bag</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The puffer bag
+                      </Link>
 
-                      <Link>70 oversized coats</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        70 oversized coats
+                      </Link>
 
-                      <Link>The Browns Fashion edit</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The Browns Fashion edit
+                      </Link>
                     </div>
                     <div>
                       <h1>DISCOVER</h1>
 
-                      <Link>Most-wanted pieces</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Most-wanted pieces
+                      </Link>
 
-                      <Link>The bestsellers</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The bestsellers
+                      </Link>
 
-                      <Link>Conscious</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious
+                      </Link>
 
-                      <Link>The party edit</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The party edit
+                      </Link>
 
-                      <Link>Exclusives & collabs</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Exclusives & collabs
+                      </Link>
 
-                      <Link>Your weekly edit</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Your weekly edit
+                      </Link>
                     </div>
                   </div>
                   <div>
@@ -209,7 +384,7 @@ function Menu() {
                     />
                     <p>Spotlight On</p>
                     <h1>THE PARTY EDIT</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -228,33 +403,75 @@ function Menu() {
                     <div>
                       <h1>FEATURED BRANDS</h1>
 
-                      <Link>Fashion icons</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fashion icons
+                      </Link>
 
-                      <Link>Alexander McQueen</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Alexander McQueen
+                      </Link>
 
-                      <Link>Balenciaga</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Balenciaga
+                      </Link>
 
-                      <Link>Balmain</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Balmain
+                      </Link>
 
-                      <Link>Burberry</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Burberry
+                      </Link>
 
-                      <Link>Dolce & Gabbana</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dolce & Gabbana
+                      </Link>
 
-                      <Link>Gucci</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gucci
+                      </Link>
 
-                      <Link>Off-White</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Off-White
+                      </Link>
 
-                      <Link>Palm Angels</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Palm Angels
+                      </Link>
 
-                      <Link>Prada</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Prada
+                      </Link>
 
-                      <Link>Saint Laurent</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Saint Laurent
+                      </Link>
 
-                      <Link>Valentino Garavani</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Valentino Garavani
+                      </Link>
 
-                      <Link>Versace</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Versace
+                      </Link>
 
-                      <Link>22% off brands</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        22% off brands
+                      </Link>
                     </div>
                     <div></div>
                     <div>{/* <h1>heading</h1> */}</div>
@@ -266,7 +483,7 @@ function Menu() {
                     />
                     <p>Brand Foucs</p>
                     <h1> GOLDEN GOOSE</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -285,44 +502,140 @@ function Menu() {
                     <div>
                       <h1>CLOTHING</h1>
 
-                      <Link>New in clothing</Link>
-                      <Link>All clothing</Link>
-                      <Link>Activewear</Link>
-                      <Link>Beachwear</Link>
-                      <Link>Coats</Link>
-                      <Link>Denim</Link>
-                      <Link>Dresses</Link>
-                      <Link>Jackets</Link>
-                      <Link>Knitwear</Link>
-                      <Link>Lingerie</Link>
-                      <Link>Skirts</Link>
-                      <Link>Suits & Tailoring</Link>
-                      <Link>Tops</Link>
-                      <Link>Pants</Link>
-                      <Link>Sale clothing</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New in clothing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All clothing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Activewear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Beachwear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Coats
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Denim
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dresses
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Jackets
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Knitwear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Lingerie
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Skirts
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Suits & Tailoring
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Tops
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Pants
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale clothing
+                      </Link>
                     </div>
                     <div>
                       <h1>FEATURED BRANDS</h1>
-                      <Link>Balmain</Link>
-                      <Link>Dolce & Gabbana</Link>
-                      <Link>Gucci</Link>
-                      <Link>Moncler</Link>
-                      <Link>Off-White</Link>
-                      <Link>Prada</Link>
-                      <Link>Saint Laurent</Link>
-                      <Link>There Was One</Link>
-                      <Link>Versace</Link>
-                      <Link>Valentino</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Balmain
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dolce & Gabbana
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gucci
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Moncler
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Off-White
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Prada
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Saint Laurent
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        There Was One
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Versace
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Valentino
+                      </Link>
                     </div>
                     <div>
                       <h1>DISCOVER</h1>
-                      <Link>Bridal</Link>
-                      <Link>Conscious activewear</Link>
-                      <Link>Conscious clothing</Link>
-                      <Link>Matching sets</Link>
-                      <Link>Modest dressing</Link>
-                      <Link>Partywear</Link>
-                      <Link>Wardrobe essentials</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Bridal
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious activewear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious clothing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Matching sets
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Modest dressing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Partywear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Wardrobe essentials
+                      </Link>
                     </div>
                   </div>
                   <div>
@@ -332,7 +645,7 @@ function Menu() {
                     />
                     <p>Soptlight On</p>
                     <h1>COATS</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -350,32 +663,101 @@ function Menu() {
                   <div>
                     <div>
                       <h1>SHOES</h1>
-                      <Link>New in shoes</Link>
-                      <Link>Exclusives</Link>
-                      <Link>All shoes</Link>
-                      <Link>Boots</Link>
-                      <Link>Espadrilles</Link>
-                      <Link>Slides & flip flops</Link>
-                      <Link>Loafers</Link>
-                      <Link>Mules</Link>
-                      <Link>Pumps</Link>
-                      <Link>Sandals</Link>
-                      <Link>Sneakers</Link>
-                      <Link>Conscious shoes</Link>
-                      <Link>Sale shoes</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New in shoes
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Exclusives
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All shoes
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Boots
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Espadrilles
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Slides & flip flops
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Loafers
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Mules
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Pumps
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sandals
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sneakers
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious shoes
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale shoes
+                      </Link>
                     </div>
                     <div>
                       <h1> FEATURED BRANDS</h1>
-                      <Link>Amina Muaddi</Link>
-                      <Link>Aquazzura</Link>
-                      <Link>Gianvito Rossi</Link>
-                      <Link>Golden Goose</Link>
-                      <Link>Gucci</Link>
-                      <Link>Jimmy Choo</Link>
-                      <Link>Mach & Mach</Link>
-                      <Link>Manolo Blahnik</Link>
-                      <Link>Prada</Link>
-                      <Link>Valentino Garavani</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Amina Muaddi
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Aquazzura
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gianvito Rossi
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Golden Goose
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gucci
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Jimmy Choo
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Mach & Mach
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Manolo Blahnik
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Prada
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Valentino Garavani
+                      </Link>
                     </div>
                     <div>{/* <h1>heading</h1> */}</div>
                   </div>
@@ -386,7 +768,7 @@ function Menu() {
                     />
                     <p>Spotlight On</p>
                     <h1>22% Off</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -406,44 +788,140 @@ function Menu() {
                     <div>
                       <h1>BAGS</h1>
 
-                      <Link>New in clothing</Link>
-                      <Link>All clothing</Link>
-                      <Link>Activewear</Link>
-                      <Link>Beachwear</Link>
-                      <Link>Coats</Link>
-                      <Link>Denim</Link>
-                      <Link>Dresses</Link>
-                      <Link>Jackets</Link>
-                      <Link>Knitwear</Link>
-                      <Link>Lingerie</Link>
-                      <Link>Skirts</Link>
-                      <Link>Suits & Tailoring</Link>
-                      <Link>Tops</Link>
-                      <Link>Pants</Link>
-                      <Link>Sale clothing</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New in clothing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All clothing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Activewear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Beachwear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Coats
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Denim
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dresses
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Jackets
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Knitwear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Lingerie
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Skirts
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Suits & Tailoring
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Tops
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Pants
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale clothing
+                      </Link>
                     </div>
                     <div>
                       <h1>FEATURED BRANDS</h1>
-                      <Link>Balmain</Link>
-                      <Link>Dolce & Gabbana</Link>
-                      <Link>Gucci</Link>
-                      <Link>Moncler</Link>
-                      <Link>Off-White</Link>
-                      <Link>Prada</Link>
-                      <Link>Saint Laurent</Link>
-                      <Link>There Was One</Link>
-                      <Link>Versace</Link>
-                      <Link>Valentino</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Balmain
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dolce & Gabbana
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gucci
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Moncler
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Off-White
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Prada
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Saint Laurent
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        There Was One
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Versace
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Valentino
+                      </Link>
                     </div>
                     <div>
                       <h1>DISCOVER</h1>
-                      <Link>Bridal</Link>
-                      <Link>Conscious activewear</Link>
-                      <Link>Conscious clothing</Link>
-                      <Link>Matching sets</Link>
-                      <Link>Modest dressing</Link>
-                      <Link>Partywear</Link>
-                      <Link>Wardrobe essentials</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Bridal
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious activewear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious clothing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Matching sets
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Modest dressing
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Partywear
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Wardrobe essentials
+                      </Link>
                     </div>
                   </div>
                   <div>
@@ -453,7 +931,7 @@ function Menu() {
                     />
                     <p>Spotlight On</p>
                     <h1>22% Off</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -472,46 +950,103 @@ function Menu() {
                     <div>
                       <h1>ACCESSORIES</h1>
 
-                      <Link>All accessories</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All accessories
+                      </Link>
 
-                      <Link>Belts</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Belts
+                      </Link>
 
-                      <Link>Gifts</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gifts
+                      </Link>
 
-                      <Link>Glasses & frames</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Glasses & frames
+                      </Link>
 
-                      <Link>Gloves</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gloves
+                      </Link>
 
-                      <Link>Headbands & hair clips</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Headbands & hair clips
+                      </Link>
 
-                      <Link>Hats & caps</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Hats & caps
+                      </Link>
 
-                      <Link>Scarves</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Scarves
+                      </Link>
 
-                      <Link>Sunglasses</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sunglasses
+                      </Link>
 
-                      <Link>Wallets & cardholders</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Wallets & cardholders
+                      </Link>
 
-                      <Link>Conscious accessories</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious accessories
+                      </Link>
 
-                      <Link>Sale accessories</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale accessories
+                      </Link>
                     </div>
                     <div>
                       <h1>HOMEWARE</h1>
 
-                      <Link>All homeware</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All homeware
+                      </Link>
 
-                      <Link>Candles & home fragrance</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Candles & home fragrance
+                      </Link>
 
-                      <Link>Home accessories</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Home accessories
+                      </Link>
 
-                      <Link>Furniture</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Furniture
+                      </Link>
 
-                      <Link>Soft furnishings</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Soft furnishings
+                      </Link>
 
-                      <Link>Stationery & books</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Stationery & books
+                      </Link>
 
-                      <Link>Tableware</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Tableware
+                      </Link>
                     </div>
                     <div>{/* <h1>heading</h1> */}</div>
                   </div>
@@ -522,7 +1057,7 @@ function Menu() {
                     />
                     <p>Spotlight On</p>
                     <h1>22% Off</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -540,34 +1075,100 @@ function Menu() {
                   <div>
                     <div>
                       <h1>FASHION JEWELRY</h1>
-                      <Link>New in jewelry</Link>
-                      <Link>All fashion jewelry</Link>
-                      <Link>Bracelets</Link>
-                      <Link>Earrings</Link>
-                      <Link>Necklaces</Link>
-                      <Link>Rings</Link>
-                      <Link>Watches</Link>
-                      <Link>Pre-owned jewelry</Link>
-                      <Link>Conscious jewelry</Link>
-                      <Link>Sale jewelry</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New in jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All fashion jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Bracelets
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Earrings
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Necklaces
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Rings
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Watches
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Pre-owned jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Conscious jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale jewelry
+                      </Link>
                     </div>
                     <div>
                       <h1>FINE JEWELRY</h1>
-                      <Link>All fine jewelry</Link>
-                      <Link>Fine bracelets</Link>
-                      <Link>Fine earrings</Link>
-                      <Link>Fine necklaces</Link>
-                      <Link>Fine rings</Link>
-                      <Link>Fine watches</Link>
-                      <Link>All demi-fine jewelry</Link>
-                      <Link>Pre-owned fine jewelry</Link>
-                      <Link>Pre-owned fine watches</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All fine jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fine bracelets
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fine earrings
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fine necklaces
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fine rings
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fine watches
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All demi-fine jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Pre-owned fine jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Pre-owned fine watches
+                      </Link>
                     </div>
                     <div>
                       <h1>DISCOVER</h1>
-                      <Link>The fine jewelry edit</Link>
-                      <Link>Birthstones</Link>
-                      <Link>Engagement rings</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        The fine jewelry edit
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Birthstones
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Engagement rings
+                      </Link>
                     </div>
                   </div>
                   <div>
@@ -577,7 +1178,7 @@ function Menu() {
                     />
                     <p>Spotlight On</p>
                     <h1>22% Off</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -595,46 +1196,145 @@ function Menu() {
                   <div>
                     <div>
                       <h1> PRE-OWNED BRANDS</h1>
-                      <Link>Cartier</Link>
-                      <Link>Chanel</Link>
-                      <Link>Christian Dior</Link>
-                      <Link>Fendi</Link>
-                      <Link>Goyard</Link>
-                      <Link>Gucci</Link>
-                      <Link>Hermès</Link>
-                      <Link>Jean Paul Gaultier</Link>
-                      <Link>Louis Vuitton</Link>
-                      <Link>Rolex</Link>
-                      <Link>View all pre-owned brands</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Cartier
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Chanel
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Christian Dior
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fendi
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Goyard
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Gucci
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Hermès
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Jean Paul Gaultier
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Louis Vuitton
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Rolex
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        View all pre-owned brands
+                      </Link>
                     </div>
                     <div>
                       <h1> PRE-OWNED</h1>
-                      <Link>New in pre-owned</Link>
-                      <Link>All pre-owned</Link>
-                      <Link>Accessories</Link>
-                      <Link>Bags</Link>
-                      <Link>Coats</Link>
-                      <Link>Dresses</Link>
-                      <Link>Fine watches</Link>
-                      <Link>Fine jewelry</Link>
-                      <Link>Jackets</Link>
-                      <Link>Jewelry</Link>
-                      <Link>Shoes</Link>
-                      <Link>Suits</Link>
-                      <Link>Watches</Link>
-                      <Link>Lifestyle pieces</Link>
-                      <Link>Pre-owned sale</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        New in pre-owned
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All pre-owned
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Accessories
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Bags
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Coats
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dresses
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fine watches
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Fine jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Jackets
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Jewelry
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Shoes
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Suits
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Watches
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Lifestyle pieces
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Pre-owned sale
+                      </Link>
                     </div>
                     <div>
                       {" "}
                       <h1>ICONIC BAGS</h1>
-                      <Link>All iconic bags</Link>
-                      <Link>Chanel 2.55</Link>
-                      <Link>Dior Saddle</Link>
-                      <Link>Lady Dior</Link>
-                      <Link>Hermès Birkin</Link>
-                      <Link>Hermès Kelly</Link>
-                      <Link>Louis Vuitton monogram</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        All iconic bags
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Chanel 2.55
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Dior Saddle
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Lady Dior
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Hermès Birkin
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Hermès Kelly
+                      </Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Louis Vuitton monogram
+                      </Link>
                     </div>
                   </div>
                   <div>
@@ -644,7 +1344,7 @@ function Menu() {
                     />
                     <p>Spotlight On</p>
                     <h1>22% Off</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>
@@ -664,23 +1364,50 @@ function Menu() {
                     <div>
                       <h1>All sale</h1>
 
-                      <Link>Sale clothing</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale clothing
+                      </Link>
 
-                      <Link>Sale dresses</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale dresses
+                      </Link>
 
-                      <Link>Sale tops</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale tops
+                      </Link>
 
-                      <Link>Sale shoes</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale shoes
+                      </Link>
 
-                      <Link>Sale sandals</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale sandals
+                      </Link>
 
-                      <Link>Sale trainers</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale trainers
+                      </Link>
 
-                      <Link>Sale bags</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale bags
+                      </Link>
 
-                      <Link>Sale shoulder bags</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale shoulder bags
+                      </Link>
 
-                      <Link>Sale accessories</Link>
+                      <Link to="/womens" onClick={() => setShow(0)}>
+                        {" "}
+                        Sale accessories
+                      </Link>
                     </div>
                     <div></div>
                     <div>{/* <h1>heading</h1> */}</div>
@@ -692,7 +1419,7 @@ function Menu() {
                     />
                     <p>Womens</p>
                     <h1>SALE</h1>
-                    <Link>
+                    <Link to="/womens" onClick={() => setShow(0)}>
                       <u>Shop Now</u>
                     </Link>
                   </div>

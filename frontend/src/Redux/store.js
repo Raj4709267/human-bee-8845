@@ -1,13 +1,11 @@
-import {combineReducers, legacy_createStore,applyMiddleware} from "redux"
-import { AuthReducer } from "./Auth/AuthReducer"
-import { cartReducer } from "./Cart/cartReducer";
-import { addReducer } from "./Add/addReducer";
+import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { AuthReducer } from "./Auth/AuthReducer";
+import { reducer as AppReducer } from "./AppReducer/reducer";
 import thunk from "redux-thunk";
 
+const store = legacy_createStore(
+  combineReducers({ AuthReducer, AppReducer }),
+  applyMiddleware(thunk)
+);
 
-const rootReducer=combineReducers({AuthReducer,cartReducer,addReducer})
-
-const store= legacy_createStore(rootReducer,applyMiddleware(thunk));
-   
-
-export {store}
+export { store };

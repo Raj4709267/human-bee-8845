@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { SliderData } from "./SliderData";
+
 import {
   BiHeart,
   BiStar,
@@ -10,7 +10,7 @@ import {
   BiEnvelope,
   BiPhone,
 } from "react-icons/bi";
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
   SimpleGrid,
@@ -32,8 +32,25 @@ import {
 } from "@chakra-ui/react";
 import Style from "./SingleProduct.module.css";
 import Form from "../SingleProduct/Form";
+import { useParams } from "react-router-dom";
+
+import axios from "axios";
 
 const SingleProduct = () => {
+  const [item, setItem] = React.useState();
+  const { productId } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`https://fashionclub.onrender.com/product/${productId}`)
+      .then((res) => {
+        setItem(res.data.product);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -46,18 +63,14 @@ const SingleProduct = () => {
       <Box w="90%" m="auto" display="flex" className={Style.main}>
         <Box w="65%" height="550px" className={Style.main2}>
           <div>
-            <Slider
-              {...settings}
-              style={{ height: "480px" }}
-              className={Style.slider}
-            >
-              {SliderData.map((el) => {
+            <Slider {...settings} style={{ height: "480px" }}>
+              {item?.image?.map((el) => {
                 return (
                   <div>
                     <img
-                      style={{ height: "500px", margin: "auto" }}
+                      style={{ height: "450px", margin: "auto" }}
                       className={Style.slider_img}
-                      src={el.img_url}
+                      src={el}
                     />
                   </div>
                 );
@@ -69,12 +82,12 @@ const SingleProduct = () => {
           <Box textAlign="left" ml="10px">
             <Text>New Season</Text>
             <Text fontWeight="bold" fontSize="20px">
-              Aeyde
+              {item?.name}
             </Text>
-            <Text>Ariel mid-calf cowboy boots</Text>
+            <Text>{item?.title}</Text>
 
             <Text mt="40px" fontWeight="bold" fontSize="20px">
-              $123
+              ${item?.prize}
             </Text>
             <Text>Import duties included</Text>
             <Box mt="20px">
@@ -84,9 +97,9 @@ const SingleProduct = () => {
                 size="lg"
                 className={Style.select}
               >
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                {item?.size?.map((el) => (
+                  <option value={el}>{el}</option>
+                ))}
               </Select>
             </Box>
             <Box mt="20px" className={Style.buttons}>
@@ -128,38 +141,37 @@ const SingleProduct = () => {
                 <Box height="400px">
                   <Text>New Season</Text>
                   <Text fontWeight="bold" fontSize="20px">
-                    Aeyde
+                    {item?.name}
                   </Text>
-                  <Text>Ariel mid-calf cowboy boots</Text>
+                  <Text>{item?.title}</Text>
                   <Text mt="40px">Made in Italy</Text>
                   <Text fontWeight="bold" mt="30px" mb="10px">
                     Hightlights
                   </Text>
                   <UnorderedList>
-                    <ListItem>Lorem ipsum dolor sit amet</ListItem>
-                    <ListItem>Consectetur adipiscing elit</ListItem>
-                    <ListItem>Integer molestie lorem at massa</ListItem>
-                    <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+                    {item?.heightlight.map((el) => (
+                      <ListItem>{el}</ListItem>
+                    ))}
                   </UnorderedList>
                 </Box>
                 <Box height="400px" className={Style.tabBox2}>
                   <Text fontWeight="bold" mb="10px">
                     Composition
                   </Text>
-                  <Text>Sole: Rubber 100%, Calf Leather 100%</Text>
-                  <Text>Lining: Calf Leather 100%</Text>
-                  <Text>Outer: Calf Leather 100%</Text>
+                  {item?.composition.map((el) => (
+                    <Text>{el}</Text>
+                  ))}
 
                   <Text fontWeight="bold" mt="30px" mb="10px">
                     Product IDs
                   </Text>
-                  <Text>FARFETCH ID: 18033877</Text>
+                  <Text>FARFETCH ID: {item?._id}</Text>
                   <Text>Brand style ID: A11ABTBUP75CH222968001</Text>
                 </Box>
                 <Box height="400px" className={Style.tabBox3}>
                   <Image
                     boxSize="100%"
-                    src="https://bit.ly/dan-abramov"
+                    src={item?.image[1]}
                     alt="Dan Abramov"
                   />
                 </Box>
@@ -195,7 +207,7 @@ const SingleProduct = () => {
                 <Box height="400px" className={Style.size_Box2}>
                   <Image
                     boxSize="100%"
-                    src="https://bit.ly/dan-abramov"
+                    src={item?.image[1]}
                     alt="Dan Abramov"
                   />
                 </Box>
@@ -301,7 +313,7 @@ const SingleProduct = () => {
           <Image
             w="100%"
             h="100%"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCpKoGmRVSw67I-uDr_DdCXoaW-otx9SOJOg0qCVV0&s"
+            src="https://modafirma.com/wp-content/uploads/2021/06/screativeref-1100l98270-2048x814.jpg"
           />
         </Box>
         <Box textAlign="left" mt="80px">

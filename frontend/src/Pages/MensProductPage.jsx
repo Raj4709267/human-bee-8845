@@ -42,6 +42,7 @@ import { useEffect } from "react";
 import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
+import { Route } from "react-router-dom";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
@@ -59,14 +60,23 @@ const MensProductPage = () => {
   const [largeGrid, setLargeGrid] = useState(showFilter ? 3 : 4);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [value, setValue] = React.useState("1");
+  const [route, setRoute] = useState("/mens");
 
   useEffect(() => {
-    dispatch(getData("/mens"));
-  }, []);
+    dispatch(getData(route));
+  }, [route]);
 
   useEffect(() => {
     setLargeGrid(showFilter ? 3 : 4);
   }, [showFilter]);
+
+  const handleChangeRoute = (pathname) => {
+    if (pathname === "SHOP WOMEN") {
+      setRoute("/womens");
+    } else if (pathname === "SHOP MEN") {
+      setRoute("/mens");
+    }
+  };
 
   return (
     <Box w={["95%", "95%", "90%"]} m="50px auto">
@@ -146,8 +156,20 @@ const MensProductPage = () => {
           </Box>
 
           <Flex gap="2rem">
-            <Text cursor="pointer">SHOP WOMEN</Text>
-            <Text cursor="pointer">SHOP MEN</Text>
+            <Text
+              onClick={(e) => handleChangeRoute(e.target.innerText)}
+              cursor="pointer"
+              decoration={route === "/womens" ? "underline" : "none"}
+            >
+              SHOP WOMEN
+            </Text>
+            <Text
+              onClick={(e) => handleChangeRoute(e.target.innerText)}
+              cursor="pointer"
+              decoration={route === "/mens" ? "underline" : "none"}
+            >
+              SHOP MEN
+            </Text>
           </Flex>
         </Stack>
 

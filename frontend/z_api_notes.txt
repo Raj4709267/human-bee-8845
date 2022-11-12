@@ -1,6 +1,6 @@
 for backend api data
 
-
+https://fashionclub.onrender.com/
 
 /user/signup    -POST 
 /user/login    -POST
@@ -17,7 +17,7 @@ for backend api data
 /product/womens/gift    -GET
 /product/womens/clotes    -GET
 
-
+/product/:productId {pass productId from params}
 
 
 /wishlist/get      -GET {pass userId from the Headres}

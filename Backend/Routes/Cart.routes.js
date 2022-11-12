@@ -6,12 +6,14 @@ const CartRouter= Router();
 
 CartRouter.post("/add",authentication,async(req,res)=>{
     // const productId=req.body
-    const payload=req.headers;
+    // const payload=req.body;
+    const {userId,productId}=req.body
+
         // console.log(payload)
     try{
         const new_cart=new cartModel({
-            productId:payload.productid,
-            userId:payload.userid
+            productId,
+            userId
         })
         const data=await new_cart.save()
         res.status(200).send({massage:"success","massage2":"Data created",data:data})
@@ -23,9 +25,11 @@ CartRouter.post("/add",authentication,async(req,res)=>{
 })
 
 CartRouter.get("/get",authentication,async(req,res)=>{
-    const {userid}=req.headers
+    // const {userid}=req.headers
+    const {userId}=req.body
+    console.log("ok")
     try {
-        const product = await cartModel.find({userId:userid});
+        const product = await cartModel.find({userId});
         const products=product.map((item)=>{
             return item.productId
         })

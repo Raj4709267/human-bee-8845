@@ -26,20 +26,23 @@ function Navbar() {
   const [isProfile, setIsProfile] = useState(false);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-
+  const totalCart=10
+  const totalBag=10
   function setOpen(value) {
     setIsOpen(value);
   }
 
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  const { userID } = useSelector((store) => store.AuthReducer.userData);
+  const { name } = useSelector((store) => store.AuthReducer.userData);
+  const ok = useSelector((store) => store.AuthReducer.userData);
+  console.log(ok)
 
   return (
     <Accordion allowToggle={true} className={style.navbar}>
       <AccordionItem>
         <AccordionPanel pb={4} className={style.navProfileMain}>
           <div className={style.navProfile}>
-            <h1>{userID}</h1>
+            <h1>{name}</h1>
             <Link to="/profile">
               <AccordionButton> My Profile</AccordionButton>
             </Link>
@@ -109,7 +112,7 @@ function Navbar() {
                 >
                   {" "}
                   <BiUser size={"1.5em"} />
-                  <p className={style.userName}>{userID}</p>
+                  <p className={style.userName}>{name}</p>
                   {isProfile ? (
                     <BiChevronUp size={"1.5em"} />
                   ) : (
@@ -122,10 +125,10 @@ function Navbar() {
             )}
 
             <Link to="/wishlist">
-              <BiHeart size={"1.5em"} />
+              <BiHeart size={"1.5em"} /><span>{totalCart}</span>
             </Link>
             <Link to="/cart">
-              <BiShoppingBag size={"1.5em"} />
+              <BiShoppingBag size={"1.5em"} /><span>{totalBag}</span>
             </Link>
           </div>
         </div>

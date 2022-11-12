@@ -25,5 +25,8 @@
 @media only screen and (max-width: 992px){
     .bt{
         font-size: small;    }
+        .crs_btn{
+            position: absolute;
+        }
     
 }

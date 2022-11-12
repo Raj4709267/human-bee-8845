@@ -10,6 +10,7 @@ import React from "react";
 import style from "./Css/Home.module.css";
 import { TbHanger, TbQuestionMark, TbMessageDots } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import Form from "../Components/SingleProduct/Form";
 
 const Homepage = () => {
   return (
@@ -235,6 +236,7 @@ const Homepage = () => {
           <p>Contact our global Customer Service team</p>
         </div>
       </div>
+      <Form/>
     </div>
   );
 };

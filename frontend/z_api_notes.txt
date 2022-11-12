@@ -1,0 +1,31 @@
+for backend api data
+
+https://fashionclub.onrender.com/
+
+/user/signup    -POST 
+/user/login    -POST
+
+
+/product/mens    -GET
+/product/womens    -GET
+
+/product/mens/shoes    -GET
+/product/mens/gift    -GET
+/product/mens/clotes    -GET
+
+/product/womens/shoes    -GET
+/product/womens/gift    -GET
+/product/womens/clotes    -GET
+
+/product/:productId {pass productId from params}
+
+
+/wishlist/get      -GET {pass userId from the Headres}
+/wishlist/add      -POST {pass userId and productId from the Headers}
+/wishlist/delete/:wishlistId      -DELETE {pass wishlistId from the params}
+
+
+
+/cart/get      -GET {pass userId from the Headres}
+/cart/add      -POST {pass userId and productId from the Headers}
+/cart/delete/:cardId      -DELETE  {pass cartId from the params}

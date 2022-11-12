@@ -129,7 +129,7 @@
     /* padding: 5px; */
     width: 250px;
 }
-.input>input{
+.input input{
     all:unset;
     text-align: left;
 }
@@ -144,6 +144,10 @@
     .iconsForHide{
         display: none;
     }
+}
+.userName{
+    font-size: 18px;
+    margin: 0 8px 0 8px;
 }
 
 @media (min-width: 100px) and (max-width: 700px) {
@@ -167,4 +171,20 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
+}
+.icons>a{
+    position: relative;
+}
+.icons span{
+    /* border: 1px solid red; */
+    font-size: 12px;
+    position: absolute;
+    top: 40%;
+    left: 90%;
+    /* background: rgb(228, 228, 228); */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* width: 20px;/ */
+    color: rgb(0, 0, 0);
 }

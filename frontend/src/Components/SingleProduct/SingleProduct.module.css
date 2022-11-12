@@ -1,31 +1,35 @@
 .sg {
   border: 1px solid black;
 }
-.sizeBox{
+.sizeBox {
   border: 3px solid black;
   text-align: center;
   border-radius: 5px;
   padding: 5px;
 }
-.img_Box{
-  border: 1px solid black;
+.img_Box {
   width: 70%;
   margin: auto;
   margin-top: 90px;
   height: 230px;
 }
 
-
 @media only screen and (min-width: 0px) and (max-width: 500px) {
   .main {
     flex-direction: column;
     width: 98% !important;
   }
+  .slider {
+    height: 400px !important;
+  }
   .main2 {
     width: 100% !important;
-    height: 500px;
   }
-  .img_Box{
+  .slider_img {
+    height: 400px !important;
+  }
+
+  .img_Box {
     width: 100%;
   }
   .imgBox1 {
@@ -33,6 +37,7 @@
   }
   .desc {
     width: 100% !important;
+    margin-top: -70px;
   }
   .select {
     width: 100% !important;
@@ -48,25 +53,25 @@
     margin-bottom: 10px;
     font-size: 20px !important;
   }
-  
-  .tabBox3{
+
+  .tabBox3 {
     margin-top: -100px;
   }
-  .tabBox2{
+  .tabBox2 {
     margin-top: -50px;
   }
-  .size_Box2{
+  .size_Box2 {
     margin-top: -150px;
   }
-  .returns_Box3{
+  .returns_Box3 {
     margin-top: -280px;
   }
 }
-@media only screen and (min-width: 500px) and (max-width: 766px) {
+@media only screen and (min-width: 501px) and (max-width: 766px) {
   .main {
     width: 98% !important;
   }
-  .img_Box{
+  .img_Box {
     width: 80%;
   }
   .imgBox1 {

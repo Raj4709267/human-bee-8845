@@ -26,7 +26,8 @@ function Navbar() {
   const [isProfile, setIsProfile] = useState(false);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-
+  const totalCart=10
+  const totalBag=10
   function setOpen(value) {
     setIsOpen(value);
   }
@@ -41,7 +42,7 @@ function Navbar() {
       <AccordionItem>
         <AccordionPanel pb={4} className={style.navProfileMain}>
           <div className={style.navProfile}>
-            <h1>{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
+            <h1>{name}</h1>
             <Link to="/profile">
               <AccordionButton> My Profile</AccordionButton>
             </Link>
@@ -111,7 +112,7 @@ function Navbar() {
                 >
                   {" "}
                   <BiUser size={"1.5em"} />
-                  <p className={style.userName}>{name.charAt(0).toUpperCase() + name.slice(1)}</p>
+                  <p className={style.userName}>{name}</p>
                   {isProfile ? (
                     <BiChevronUp size={"1.5em"} />
                   ) : (
@@ -124,10 +125,10 @@ function Navbar() {
             )}
 
             <Link to="/wishlist">
-              <BiHeart size={"1.5em"} />
+              <BiHeart size={"1.5em"} /><span>{totalCart}</span>
             </Link>
             <Link to="/cart">
-              <BiShoppingBag size={"1.5em"} />
+              <BiShoppingBag size={"1.5em"} /><span>{totalBag}</span>
             </Link>
           </div>
         </div>

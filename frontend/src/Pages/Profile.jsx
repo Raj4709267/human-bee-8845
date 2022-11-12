@@ -8,9 +8,12 @@ function Profile() {
   const userData = useSelector((store) => store.AuthReducer.userData);
 
   if (isAuth) {
-    return <div>
-        <h1>Your Profile</h1>
-        <p>Name {userData.token}</p>
+    return <div className={style.profile}>
+        <h1>{`WELCOME TO YOUR ACCOUNT, ${userData.name.toUpperCase()}`}</h1>
+        <p>{userData.email}</p>
+        <div>
+          <h1>YOUR ACCOUT DETEILS</h1>
+        </div>
     </div>;
   }
   return (

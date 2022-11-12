@@ -45,65 +45,18 @@ const SingleProduct = () => {
     <>
       <Box w="90%" m="auto" display="flex" className={Style.main}>
         <Box w="65%" height="550px" className={Style.main2}>
-          {/* <SimpleGrid columns={[1, 1, 2]} spacing="10px" className={Style.sg}>
-            <Box
-              border="1px solid black"
-              w="100%"
-              height="500PX"
-              className={Style.Box1}
-            >
-              <Image
-                // boxSize="100%"
-                height="100%"
-                src="https://bit.ly/dan-abramov"
-                alt="Dan Abramov"
-              />
-            </Box>
-            <Box
-              border="1px solid black"
-              w="100%"
-              height="500px"
-              className={Style.imgBox1}
-            >
-              <Image
-                boxSize="100%"
-                src="https://bit.ly/dan-abramov"
-                alt="Dan Abramov"
-              />
-            </Box>
-            <Box
-              border="1px solid black"
-              w="100%"
-              height="500px"
-              className={Style.imgBox1}
-            >
-              <Image
-                boxSize="100%"
-                src="https://bit.ly/dan-abramov"
-                alt="Dan Abramov"
-              />
-            </Box>
-            <Box
-              border="1px solid black"
-              w="100%"
-              height="500px"
-              className={Style.imgBox1}
-            >
-              <Image
-                boxSize="100%"
-                src="https://bit.ly/dan-abramov"
-                alt="Dan Abramov"
-              />
-            </Box>
-          </SimpleGrid> */}
-
           <div>
-            <Slider {...settings} style={{ height: "480px" }}>
+            <Slider
+              {...settings}
+              style={{ height: "480px" }}
+              className={Style.slider}
+            >
               {SliderData.map((el) => {
                 return (
                   <div>
                     <img
                       style={{ height: "500px", margin: "auto" }}
+                      className={Style.slider_img}
                       src={el.img_url}
                     />
                   </div>
@@ -112,11 +65,7 @@ const SingleProduct = () => {
             </Slider>
           </div>
         </Box>
-        <Box
-          // border="1px solid black"
-          w="35%"
-          className={Style.desc}
-        >
+        <Box w="35%" className={Style.desc}>
           <Box textAlign="left" ml="10px">
             <Text>New Season</Text>
             <Text fontWeight="bold" fontSize="20px">

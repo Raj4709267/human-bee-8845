@@ -127,14 +127,16 @@ ProductRouter.get("/kids/gift", async (req, res) => {
     res.status(500).send({ type: "error", message: "An error occured" });
   }
 });
-ProductRouter.get("/product/:productId", async (req, res) => {
-  const { productId } = req.body;
+ProductRouter.get("/:productId", async (req, res) => {
+  const {productId}= req.params;
+  console.log(productId)
   try {
-    const data = await productModel.find({ _id: productId });
-    res.send(201).send({ type: "success", product: data });
+    const data = await productModel.findOne({ _id: productId });
+    console.log(data)
+    res.send({ type: "success", product: data });
   } catch (err) {
     console.log(err);
-    re.send(500).send({ type: "err", massage: "Unable to find" });
+    re.status(500).json({ type: "err", massage: "Unable to find" });
   }
 });
 

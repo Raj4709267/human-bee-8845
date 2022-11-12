@@ -16,11 +16,6 @@ export const CartPage = () => {
 
   const dispatch = useDispatch();
 
-  const handleDel = (id) => {
-    console.log("id", id);
-    dispatch(removeDataFromCart(id));
-  };
-
   const handleCheckoutCart = () => {
     if (cartItems.length === 0) {
       alert("Please Add to Bag First");
@@ -45,16 +40,43 @@ export const CartPage = () => {
   //   .catch()
   //   .then(()=>getCart())
   // }
+  const { userId,token } = useSelector((store) => store.AuthReducer.userData);
+
+  // console.log(userId,token)
+  
+  const handleDel = (id) => {
+    // console.log("id", id);
+    // dispatch(removeDataFromCart(id));
+    console.log(id)
+    return axios.delete(`https://fashionclub.onrender.com/cart/delete/${id}`,{
+      headers:{
+        "authorization":`bearer ${token}`
+      }
+    })
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>{
+      console.log("delete"+err)
+    })
+    .then(()=>getCart())
+    
+  };
+
 
   function getCart() {
     axios
-      .get("http://localhost:8080/product/mens")
+      .get("https://fashionclub.onrender.com/cart/get",{
+        headers:{
+          "authorization":`bearer ${token}`
+        }
+      })
       .then((res) => {
-        dispatch(addToCart(res.data.product));
-        console.log(res.data.product);
+        dispatch(addToCart(res.data));
+        console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("err",err);
       });
   }
 
@@ -119,7 +141,7 @@ export const CartPage = () => {
                       <TiDeleteOutline
                         className={styles.delBtn}
                         onClick={() => {
-                          handleDel();
+                          handleDel(data._id);
                         }}
                       />{" "}
                     </div>

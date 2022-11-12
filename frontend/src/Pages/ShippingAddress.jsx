@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 // import { Address } from "../Redux/Cart/action";
 import { fetchAddress } from "../Redux/Add/action";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
 
 const ShippingAddress = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const ShippingAddress = () => {
 
   const handleContinue = () => {
     if (cartItems.length === 0) {
-      alert("Please Add to Bag First");
+      alert("Please Add to Cart First");
       return navigate("/");
     }
     handleAddress();

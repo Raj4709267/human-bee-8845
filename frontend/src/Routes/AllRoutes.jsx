@@ -56,6 +56,7 @@ const AllRoutes = () => {
           }
         />
         <Route path="/mens" element={<Mens />} />
+        <Route path="/payment" element={<Payment/>}/>
         <Route path="/mens/menswear" element={<MensProductPage />} />
         <Route path="/womens" element={<Womens />} />
         <Route path="/womens/womenswear" element={<MensProductPage />} />

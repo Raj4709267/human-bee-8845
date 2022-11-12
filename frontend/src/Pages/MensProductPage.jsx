@@ -46,6 +46,7 @@ import { useEffect } from "react";
 import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
+import { useLocation, useParams } from "react-router-dom";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);

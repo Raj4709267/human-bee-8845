@@ -18,21 +18,13 @@ const ProductItem = ({ item }) => {
   const handleAddToWishlist = () => {
     setToggle(!toggle);
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userData.token}`,
-        userid: userData.userId,
-        productid: item._id,
-      },
-    };
-
     axios
       .post(
         "https://fashionclub.onrender.com/wishlist/add",
         { productId: item._id },
         {
           headers: {
-            authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzZlMDdmYjYxY2M0ZDBkOWVjOGNmZmEiLCJpYXQiOjE2NjgyNDEyMzZ9.Ot_euNqSkQ8eZdVOUfCuKG91S3M41yZP8RosQQoIA0A`,
+            authorization: `bearer ${userData.token}`,
           },
         }
       )

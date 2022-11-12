@@ -27,7 +27,7 @@ const Kids = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/mens/menswear", { replace: true });
+    navigate("/kids/kidswear", { replace: true });
   };
 
   return (

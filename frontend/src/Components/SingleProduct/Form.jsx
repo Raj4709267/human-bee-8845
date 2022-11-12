@@ -28,8 +28,8 @@ const Form = () => {
       <Box className={Style.radio_box} mt="30px">
         <RadioGroup onChange={setValue} value={value}>
           <Stack direction="row">
-            <Radio value="1">Womenswear</Radio>
-            <Radio value="2">Menswear</Radio>
+            <Radio colorScheme="blackAlpha" value="1">Womenswear</Radio>
+            <Radio colorScheme="blackAlpha" value="2">Menswear</Radio>
           </Stack>
         </RadioGroup>
       </Box>
@@ -37,14 +37,14 @@ const Form = () => {
         GET UPDATES BY
       </Text>
       <Box textAlign="left">
-        <Checkbox mt="10px" ml="10px" defaultChecked>
+        <Checkbox colorScheme="blackAlpha" mt="10px" ml="10px" defaultChecked>
           Email
         </Checkbox>
         <Input mt="10px" ml="10px" w="95%" placeholder="Your email address" />
       </Box>
 
       <Box textAlign="left">
-        <Checkbox mt="10px" ml="10px" defaultChecked>
+        <Checkbox colorScheme="blackAlpha" mt="10px" ml="10px">
           SMS
         </Checkbox>
         <Flex>
@@ -60,7 +60,8 @@ const Form = () => {
         <Box w="95%" m="auto" mt="20px">
           <Button
             w="100%"
-            colorScheme="teal"
+            backgroundColor={"black"}
+            color="white"
             variant="solid"
             className={Style.btn1}
           >

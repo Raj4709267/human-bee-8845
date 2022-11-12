@@ -48,16 +48,9 @@ const AllRoutes = () => {
           }
         />
         <Route path="/review" element={<Review />} />
-        <Route
-          path="/singleproduct/:productId"
-          element={
-            <PrivateRoute>
-              <SingleProduct />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/singleproduct/:productId" element={<SingleProduct />} />
         <Route path="/mens" element={<Mens />} />
-        <Route path="/payment" element={<Payment/>}/>
+        <Route path="/payment" element={<Payment />} />
         <Route path="/mens/menswear" element={<MensProductPage />} />
         <Route path="/womens" element={<Womens />} />
         <Route path="/womens/womenswear" element={<WomensProductPage />} />
@@ -65,7 +58,7 @@ const AllRoutes = () => {
         <Route path="/kids/kidswear" element={<KidsProductPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Error />} />
-        <Route path="/confirm" element={<Confirm/>}/>
+        <Route path="/confirm" element={<Confirm />} />
       </Routes>
     </div>
   );

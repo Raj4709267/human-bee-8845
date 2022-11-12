@@ -52,7 +52,7 @@ CartRouter.delete("/delete/:cartId",authentication,async(req,res)=>{
     
     const {cartId}=req.params
     try{
-        await cartModel.deleteOne({_id:cartId})
+        await cartModel.deleteOne({cartId:cartId})
         res.status(201).send({"Message":"deleted"});
     }
     catch(err){

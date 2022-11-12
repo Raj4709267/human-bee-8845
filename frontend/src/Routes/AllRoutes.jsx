@@ -48,7 +48,7 @@ const AllRoutes = () => {
         />
         <Route path="/review" element={<Review />} />
         <Route
-          path="/singleproduct"
+          path="/singleproduct/:productId"
           element={
             <PrivateRoute>
               <SingleProduct />

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addToWishlist } from "../Redux/WishlistReducer/action";
+import axios from "axios";
 
 const ProductItem = ({ item }) => {
   const navigate = useNavigate();
@@ -17,37 +19,37 @@ const ProductItem = ({ item }) => {
     navigate(`/singleproduct/${item._id}`, { replace: true });
   };
 
-  const addToWishlist = () => {
+  const handleAddToWishlist = () => {
     setToggle(!toggle);
-    dispatch(addToWishlist(item._id));
 
-    if (addSuccess) {
-      toast({
-        title: "Product added to wishlist Successful.",
-        description: "We have added this product to your wishlist.",
-        status: "success",
-        duration: 2000,
-        isClosable: true,
-        position: "top",
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userData.token}`,
+        userid: userData.userId,
+        productid: item._id,
+      },
+    };
+
+    axios
+      .post(
+        "https://fashionclub.onrender.com/wishlist/add",
+        { productId: item._id },
+        {
+          headers: {
+            authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzZlMDdmYjYxY2M0ZDBkOWVjOGNmZmEiLCJpYXQiOjE2NjgyNDEyMzZ9.Ot_euNqSkQ8eZdVOUfCuKG91S3M41yZP8RosQQoIA0A`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((er) => {
+        console.log(er);
       });
-    } else if (isError) {
-      toast({
-        title: "Product added to wishlist Unsuccessful.",
-        description: "Can't able to add to wishlist.",
-        status: "error",
-        duration: 2000,
-        isClosable: true,
-        position: "top",
-      });
-    }
   };
 
   return (
-    <Box
-      // border="1px solid red"
-      cursor="pointer"
-      backgroundColor="gray.50"
-    >
+    <Box cursor="pointer" backgroundColor="gray.50">
       <Box>
         <Image
           position="relative"
@@ -59,9 +61,9 @@ const ProductItem = ({ item }) => {
           onClick={handleClick}
         />
         {toggle ? (
-          <AiFillHeart onClick={addToWishlist} size="1.3rem" />
+          <AiFillHeart size="1.3rem" />
         ) : (
-          <AiOutlineHeart onClick={addToWishlist} size="1.3rem" />
+          <AiOutlineHeart onClick={handleAddToWishlist} size="1.3rem" />
         )}
       </Box>
 

@@ -28,7 +28,7 @@ const Womens = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/mens/menswear", { replace: true });
+    navigate("/womens/womenswear", { replace: true });
   };
 
   return (

@@ -3,17 +3,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToWishlist } from "../Redux/WishlistReducer/action";
+import { useSelector } from "react-redux"
 import axios from "axios";
 
 const ProductItem = ({ item }) => {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const dispatch = useDispatch();
-  const { addSuccess, isError } = useSelector((store) => store.WishlistReducer);
   const { userData } = useSelector((store) => store.AuthReducer);
-  const toast = useToast();
 
   const handleClick = () => {
     navigate(`/singleproduct/${item._id}`, { replace: true });

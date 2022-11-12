@@ -148,8 +148,8 @@ const Wishlist = () => {
                     fontSize="20px"
                     color={"black"}
                     onClick={() => del_wishlist(ele._id)}
-                  >
-                    {isloading ? <Spinner /> : <CloseIcon w={4} h={4} />}
+                  >{isloading ? <Spinner /> : <CloseIcon w={4} h={4} />}
+                    
                   </Button>
                   <Image src={ele.image[0]} />
                   <div style={{ textAlign: "left" }}>
@@ -169,9 +169,10 @@ const Wishlist = () => {
                       width="100%"
                       borderColor="black.500"
                     >
-                      <option value="option1">{}</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
+                      <option value="option1">{ele.size[0]}</option>
+                      <option value="option2">{ele.size[1]}</option>
+                      <option value="option3">{ele.size[2]}</option>
+                      <option value="option3">{ele.size[3]}</option>
                     </Select>
 
                     <Button

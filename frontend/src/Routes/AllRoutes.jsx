@@ -16,6 +16,7 @@ import Womens from "../Pages/Womens";
 import WomensProductPage from "../Pages/WomensProductPage";
 import KidsProductPage from "../Pages/KidsProductPage";
 import PrivateRoute from "./PrivateRoute";
+import Confirm from "../Pages/Confirm";
 
 const AllRoutes = () => {
   return (
@@ -63,6 +64,7 @@ const AllRoutes = () => {
         <Route path="/kids/kidswear" element={<KidsProductPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Error />} />
+        <Route path="/confirm" element={<Confirm/>}/>
       </Routes>
     </div>
   );

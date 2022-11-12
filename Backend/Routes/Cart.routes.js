@@ -45,7 +45,7 @@ CartRouter.get("/get", authentication, async (req, res) => {
     }
 });
 
-CartRouter.delete("/delete/:cartId", authentication, async (req, res) => {
+CartRouter.delete("/delete/:id", authentication, async (req, res) => {
     const { id } = req.params;
     console.log(id)
     const isPresent = await cartModel.findOne({ productId: id });

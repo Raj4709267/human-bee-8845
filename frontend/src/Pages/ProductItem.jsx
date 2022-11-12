@@ -10,6 +10,7 @@ const ProductItem = ({ item }) => {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
   const { userData } = useSelector((store) => store.AuthReducer);
+  const toast = useToast();
 
   const handleClick = () => {
     navigate(`/singleproduct/${item._id}`, { replace: true });
@@ -29,10 +30,26 @@ const ProductItem = ({ item }) => {
         }
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
+        toast({
+          title: "Product added to wishlist success full.",
+          description: "We've added your product.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
       })
       .catch((er) => {
-        console.log(er);
+        // console.log(er);
+        toast({
+          title: "Product is already present.",
+          description: "Failed to add wishlist",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
       });
   };
 

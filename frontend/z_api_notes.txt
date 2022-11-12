@@ -20,12 +20,12 @@ https://fashionclub.onrender.com/
 /product/:productId {pass productId from params}
 
 
-/wishlist/get      -GET {pass userId from the Headres}
-/wishlist/add      -POST {pass userId and productId from the Headers}
-/wishlist/delete/:wishlistId      -DELETE {pass wishlistId from the params}
+/wishlist/get      -GET {pass token from the Headres}
+/wishlist/add      -POST {pass toke from the Headers } {pass productId from payload}
+/wishlist/delete/:wishlistId      -DELETE  {pass token from the Headres} {pass wishlistId from the params}
 
 
 
-/cart/get      -GET {pass userId from the Headres}
-/cart/add      -POST {pass userId and productId from the Headers}
-/cart/delete/:cardId      -DELETE  {pass cartId from the params}
+/cart/get      -GET {pass token from the Headres}
+/cart/add      -POST  {pass toke from the Headers } {pass productId from payload}
+/cart/delete/:cardId      -DELETE  {pass token from the Headres} {pass cartId from the params}

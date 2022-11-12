@@ -10,10 +10,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
   SimpleGrid,
   Skeleton,
@@ -46,7 +42,6 @@ import { useEffect } from "react";
 import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
-import { useLocation, useParams } from "react-router-dom";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
@@ -66,16 +61,13 @@ const MensProductPage = () => {
   const [value, setValue] = React.useState("1");
 
   useEffect(() => {
-    if (data.length === 0) {
-      dispatch(getData("/mens"));
-    }
-  }, [data.length]);
+    dispatch(getData("/mens"));
+  }, []);
 
   useEffect(() => {
     setLargeGrid(showFilter ? 3 : 4);
   }, [showFilter]);
 
-  // console.log(isLoading);
   return (
     <Box w={["95%", "95%", "90%"]} m="50px auto">
       {/* Top filter */}
@@ -103,7 +95,6 @@ const MensProductPage = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          {/* <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader> */}
           <DrawerBody m="1rem">
             <Box>
               <Text

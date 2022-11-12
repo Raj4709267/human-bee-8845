@@ -13,7 +13,7 @@ export const getData = (category, subCategory, queryParams) => (dispatch) => {
   return axios
     .get(`${url}${category}${subCategory ? subCategory : "/"}`, queryParams)
     .then((res) => {
-    //   console.log(res.data.product);
+      console.log(res.data.product);
       dispatch({ type: GET_DATA_SUCCESS, payload: res.data.product });
     })
     .catch((err) => {

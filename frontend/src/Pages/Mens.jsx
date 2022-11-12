@@ -24,8 +24,15 @@ import ProductList from "../Components/ProductList";
 import { productData1, productData2 } from "../Data/ProductData";
 import ShopBy from "../Components/ShopBy";
 import QuerySection from "../Components/QuerySection";
+import { useNavigate } from "react-router-dom";
 
 const Mens = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/mens/menswear", { replace: true });
+  };
+
   return (
     <Stack
       spacing={["50px", "50px", "100px"]}
@@ -40,7 +47,11 @@ const Mens = () => {
         justify="space-between"
         flexDirection={["column", "column", "row"]}
       >
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img1} />
         </Box>
         <Stack
@@ -69,7 +80,11 @@ const Mens = () => {
             with 22% off. Offer available on selected full-price items
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
@@ -99,12 +114,20 @@ const Mens = () => {
             this season’s best styles
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
 
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img2} />
         </Box>
       </Flex>
@@ -122,7 +145,11 @@ const Mens = () => {
         justify="space-between"
         flexDirection={["column", "column", "row"]}
       >
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img3} />
         </Box>
 
@@ -147,7 +174,7 @@ const Mens = () => {
         </Stack>
       </Flex>
 
-      {/* Shop by category */}
+      {/* Shop by category section */}
       <Box cursor="pointer">
         <Text
           align="center"
@@ -194,17 +221,25 @@ const Mens = () => {
             history and craftsmanship.
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
 
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img4} />
         </Box>
       </Flex>
 
-      {/* Product List 2 */}
+      {/* Product List 2 section*/}
       <ProductList
         title="Trending now: most-wanted gifts"
         data={productData2}
@@ -217,7 +252,11 @@ const Mens = () => {
         justify="space-between"
         flexDirection={["column", "column", "row"]}
       >
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img5} />
         </Box>
         <Stack
@@ -241,13 +280,17 @@ const Mens = () => {
             with 22% off. Offer available on selected full-price items
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
       </Flex>
 
-      {/* Shop by brands */}
+      {/* Shop by brands section */}
       <Box cursor="pointer">
         <Text
           align="center"

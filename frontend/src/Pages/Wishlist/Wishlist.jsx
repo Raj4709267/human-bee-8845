@@ -2,43 +2,41 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {
   Box,
-  Center,
   Heading,
   Text,
-  Stack,
-  Avatar,
-  useColorModeValue,
   Image,
-  Badge,
-  List,
-  ListIcon,
-  ListItem,
   Button,
   Select,
   GridItem,
-  Grid,
   SimpleGrid,
   useToast,
   Spinner,
+  Skeleton,
+  SkeletonText,
+  AlertDialog,
+  AlertDialogOverlay,
+  AlertDialogContent,
+  useDisclosure,
+  Img,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-import { FiShoppingCart } from "react-icons/fi";
-import ImagePointer from "./ImagePointer";
-import { useNavigate } from "react-router-dom";
-const local = localStorage.getItem("fashionClub_userData");
+import { useSelector } from "react-redux";
+import { CloseIcon } from "@chakra-ui/icons";
+
+// const local = localStorage.getItem("fashionClub_userData");
 const Wishlist = () => {
   const toast = useToast();
-  const navigate = useNavigate();
   const [data, setData] = useState([]);
-  const dispatch = useDispatch();
   const { userData } = useSelector((store) => store.AuthReducer);
   const [isloading, setIsLoading] = useState(false);
+  const loadingItem = new Array(12).fill(0);
+  const [empty, setEmpty] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
+
   const getData = async () => {
-    setIsLoading(true);
-    axios
+    setEmpty(false);
+    return axios
       .get("https://fashionclub.onrender.com/wishlist/get", {
         headers: {
           Authorization: `Bearer ${userData.token}`,
@@ -48,6 +46,7 @@ const Wishlist = () => {
       .then((res) => {
         setData(res.data);
         setIsLoading(false);
+        setEmpty(true);
       })
       .catch((err) => {
         setIsLoading(false);
@@ -56,8 +55,7 @@ const Wishlist = () => {
   };
 
   const sendTobag = (id) => {
-    setIsLoading(true);
-
+    onOpen();
     axios
       .post(
         "https://fashionclub.onrender.com/cart/add",
@@ -69,24 +67,25 @@ const Wishlist = () => {
         }
       )
       .then((res) => {
+        onClose();
         console.log(res);
         toast({
           title: "Added to Cart.",
-          description:
-            "Your Item is Added in Cart You Can Check now by clicking to cart Icon.",
+          description: "Item Added",
           status: "success",
-          duration: 9000,
+          duration: 3000,
           isClosable: true,
           position: "top",
         });
-        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        onClose();
+
         toast({
-          title: "Item already added to Cart",
+          title: "Already added",
           status: "error",
-          duration: 9000,
+          duration: 4000,
           isClosable: true,
         });
         setIsLoading(false);
@@ -94,28 +93,37 @@ const Wishlist = () => {
   };
 
   const del_wishlist = (id) => {
+    onOpen();
     return axios
       .delete(`https://fashionclub.onrender.com/wishlist/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${userData.token}`,
         },
       })
-      .then((res) =>
-        toast({
-          title: "Deleted Item",
-          status: "success",
-          duration: 1000,
-          isClosable: true,
-        })
-      )
-      .catch((err) => console.log(err))
-      .then(() => getData());
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("err");
+      })
+      .then(() => {
+        getData().then(() => {
+          onClose();
+          toast({
+            title: "Item Deleted",
+            status: "success",
+            duration: 1000,
+            isClosable: true,
+          });
+        });
+      });
   };
 
-
   useEffect(() => {
+    if (data.length == 0) {
+      setIsLoading(true);
+    }
     getData();
-    console.log("mt", data);
   }, []);
   return (
     <>
@@ -127,8 +135,22 @@ const Wishlist = () => {
           all in one place
         </Text>
       </Box>
+      <Text margin={"auto"} fontSize="30px" textAlign="center">
+        {data.length == 0 && empty && "Your Wishlist is empty"}
+      </Text>
+      {data.length == 0 && empty && (
+        <Img
+          margin={"auto"}
+          height="300px"
+          src="https://media.istockphoto.com/id/861576608/vector/empty-shopping-bag-icon-online-business-vector-icon-template.jpg?s=612x612&w=0&k=20&c=I7MbHHcjhRH4Dy0NVpf4ZN4gn8FVDnwn99YdRW2x5k0="
+          alt="https://media.istockphoto.com/id/861576608/vector/empty-shopping-bag-icon-online-business-vector-icon-template.jpg?s=612x612&w=0&k=20&c=I7MbHHcjhRH4Dy0NVpf4ZN4gn8FVDnwn99YdRW2x5k0="
+        />
+      )}
+      <Text margin={"auto"} fontSize="16px" textAlign="center">
+        {data.length == 0 && empty && "Please add some Products"}
+      </Text>
       <div>
-        <SimpleGrid columns={[1, 2, 3, 4]} gap={"3%"} padding="0 5% 5% 5%">
+        <SimpleGrid columns={[1, 2, 3, 4]} gap={"2%"} padding="0 5% 5% 5%">
           {data.length > 0 &&
             data.map((ele, i) => {
               return (
@@ -136,9 +158,10 @@ const Wishlist = () => {
                   boxShadow="inner"
                   rounded="md"
                   bg="white"
-                  width="90%"
+                  width="80%"
                   margin="auto"
                   key={i}
+                  marginTop="50px"
                 >
                   <Button
                     colorScheme="teal"
@@ -149,7 +172,7 @@ const Wishlist = () => {
                     color={"black"}
                     onClick={() => del_wishlist(ele._id)}
                   >
-                    {isloading ? <Spinner /> : <CloseIcon w={4} h={4} />}
+                    <CloseIcon w={4} h={4} />
                   </Button>
                   <Image src={ele.image[0]} />
                   <div style={{ textAlign: "left" }}>
@@ -160,7 +183,7 @@ const Wishlist = () => {
 
                     <Text fontSize={"sm"}>{ele.title}</Text>
 
-                    <Text>{ele.prize}</Text>
+                    <Text>$ {ele.prize}</Text>
 
                     <Select
                       placeholder="Select Size"
@@ -185,8 +208,32 @@ const Wishlist = () => {
                 </GridItem>
               );
             })}
+
+          {isloading &&
+            loadingItem.map((el, index) => (
+              <Box key={index + 1} p="1rem">
+                <Skeleton w="100%" h="300px"></Skeleton>
+                <SkeletonText w="100%"></SkeletonText>
+              </Box>
+            ))}
         </SimpleGrid>
       </div>
+      <>
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <Spinner
+              color="white"
+              size={"lg"}
+              marginLeft="50vw"
+              marginTop="50vh"
+            />
+          </AlertDialogOverlay>
+        </AlertDialog>
+      </>
     </>
   );
 };

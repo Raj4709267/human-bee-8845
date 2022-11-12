@@ -26,8 +26,8 @@ function Navbar() {
   const [isProfile, setIsProfile] = useState(false);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const totalCart=10
-  const totalBag=10
+  const totalCart=""
+  const totalBag=""
   function setOpen(value) {
     setIsOpen(value);
   }

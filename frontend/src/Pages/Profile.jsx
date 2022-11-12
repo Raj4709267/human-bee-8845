@@ -12,7 +12,7 @@ function Profile() {
         <h1>{`WELCOME TO YOUR ACCOUNT, ${userData.name.toUpperCase()}`}</h1>
         <p>{userData.email}</p>
         <div>
-          <h1>YOUR ACCOUT DETEILS</h1>
+          <h1 style={{color:"red"}}>COMING SOON</h1>
         </div>
     </div>;
   }

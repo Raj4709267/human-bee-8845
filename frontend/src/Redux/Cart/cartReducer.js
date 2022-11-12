@@ -12,7 +12,7 @@ export const cartReducer=(state=initialState,action)=>{
         case types.ADD_CART: {
             return {
                 ...state,
-                cart: [ ...payload ]
+                cart: [...payload ]
             };
         }
         case types.REMOVE_DATA_FROM_CART: {

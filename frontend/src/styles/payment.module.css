@@ -125,7 +125,7 @@
     width: 100px;
     background-color: #595959;
     border: transparent;
-    color: white;
+    color: rgb(216, 17, 17);
 }
 .cardForm>div:nth-child(6)>input {
     width: 20px;

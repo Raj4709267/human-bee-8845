@@ -1,3 +1,13 @@
+
+
+.form1 {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.headers {
+  font-size: 20px;
+  font-weight: bold;
+} 
 .Summary {
     width: 10%;
     text-align: left;

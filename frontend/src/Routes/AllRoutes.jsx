@@ -49,7 +49,7 @@ const AllRoutes = () => {
         />
         <Route path="/review" element={<Review />} />
         <Route
-          path="/singleproduct"
+          path="/singleproduct/:productId"
           element={
             <PrivateRoute>
               <SingleProduct />
@@ -57,9 +57,10 @@ const AllRoutes = () => {
           }
         />
         <Route path="/mens" element={<Mens />} />
+        <Route path="/payment" element={<Payment/>}/>
         <Route path="/mens/menswear" element={<MensProductPage />} />
         <Route path="/womens" element={<Womens />} />
-        <Route path="/womens/womenswear" element={<MensProductPage />} />
+        <Route path="/womens/womenswear" element={<WomensProductPage />} />
         <Route path="/kids" element={<Kids />} />
         <Route path="/kids/kidswear" element={<KidsProductPage />} />
         <Route path="/profile" element={<Profile />} />

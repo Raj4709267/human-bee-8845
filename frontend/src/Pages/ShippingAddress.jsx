@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 // import { Address } from "../Redux/Cart/action";
 import { fetchAddress } from "../Redux/Add/action";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
 
 const ShippingAddress = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const ShippingAddress = () => {
 
   const handleContinue = () => {
     if (cartItems.length === 0) {
-      alert("Please Add to Bag First");
+      alert("Please Add to Cart First");
       return navigate("/");
     }
     handleAddress();
@@ -67,20 +68,20 @@ const ShippingAddress = () => {
   return (
     <div className={styles.CheckoutContainer}>
       <div className={styles.CheckoutBox}>
-        <div>
+        <div className={styles.ShippingAddress}>
           <div>
-            <h3>Add shipping address</h3>
+            <h3 className={styles.headers}>Add shipping address</h3>
             <p>* Required fields</p>
           </div>
           <form className={styles.addForm}>
             <div className={styles.flexInput}>
               <div>
                 <div>First Name</div>
-                <input type="text" name="firstName" onChange={handleChange} />
+                <input className={styles.form1} type="text" name="firstName" onChange={handleChange} />
               </div>
               <div>
                 <div>Last Name</div>
-                <input type="text" name="lastName" onChange={handleChange} />
+                <input className={styles.form1} type="text" name="lastName" onChange={handleChange} />
               </div>
             </div>
 
@@ -94,17 +95,17 @@ const ShippingAddress = () => {
             </select>
 
             <div>Address</div>
-            <input type="text" name="address" onChange={handleChange} />
-            <input type="text" name="address" onChange={handleChange} />
+            <input className={styles.form1} type="text" name="address" onChange={handleChange} />
+            <input className={styles.form1} type="text" name="address" onChange={handleChange} />
 
             <div className={styles.flexInput}>
               <div>
                 <div>City *</div>
-                <input type="text" onChange={handleChange} name="city" />
+                <input className={styles.form1} type="text" onChange={handleChange} name="city" />
               </div>
               <div>
                 <div>State</div>
-                <input type="text" name="state" onChange={handleChange} />
+                <input className={styles.form1} type="text" name="state" onChange={handleChange} />
               </div>
             </div>
 
@@ -117,11 +118,12 @@ const ShippingAddress = () => {
                   maxLength="6"
                   pattern="[0-9]{6}"
                   onChange={handleChange}
+                  className={styles.form1}
                 />
               </div>
               <div>
                 <div>Phone *</div>
-                <input type="tel" name="phone" onChange={handleChange} />
+                <input className={styles.form1} type="tel" name="phone" onChange={handleChange} />
               </div>
             </div>
 

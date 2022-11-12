@@ -10,10 +10,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
   SimpleGrid,
   Skeleton,
@@ -46,7 +42,7 @@ import { useEffect } from "react";
 import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
-import { useLocation, useParams } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
@@ -64,18 +60,24 @@ const MensProductPage = () => {
   const [largeGrid, setLargeGrid] = useState(showFilter ? 3 : 4);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [value, setValue] = React.useState("1");
+  const [route, setRoute] = useState("/mens");
 
   useEffect(() => {
-    if (data.length === 0) {
-      dispatch(getData("/mens"));
-    }
-  }, [data.length]);
+    dispatch(getData(route));
+  }, [route]);
 
   useEffect(() => {
     setLargeGrid(showFilter ? 3 : 4);
   }, [showFilter]);
 
-  // console.log(isLoading);
+  const handleChangeRoute = (pathname) => {
+    if (pathname === "SHOP WOMEN") {
+      setRoute("/womens");
+    } else if (pathname === "SHOP MEN") {
+      setRoute("/mens");
+    }
+  };
+
   return (
     <Box w={["95%", "95%", "90%"]} m="50px auto">
       {/* Top filter */}
@@ -103,7 +105,6 @@ const MensProductPage = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          {/* <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader> */}
           <DrawerBody m="1rem">
             <Box>
               <Text
@@ -155,8 +156,20 @@ const MensProductPage = () => {
           </Box>
 
           <Flex gap="2rem">
-            <Text cursor="pointer">SHOP WOMEN</Text>
-            <Text cursor="pointer">SHOP MEN</Text>
+            <Text
+              onClick={(e) => handleChangeRoute(e.target.innerText)}
+              cursor="pointer"
+              decoration={route === "/womens" ? "underline" : "none"}
+            >
+              SHOP WOMEN
+            </Text>
+            <Text
+              onClick={(e) => handleChangeRoute(e.target.innerText)}
+              cursor="pointer"
+              decoration={route === "/mens" ? "underline" : "none"}
+            >
+              SHOP MEN
+            </Text>
           </Flex>
         </Stack>
 

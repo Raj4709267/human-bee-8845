@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, SimpleGrid, Image } from "@chakra-ui/react";
 
 const ShopBy = ({ images, titles, description }) => {
+  
   return (
     <SimpleGrid columns={[1, 2, 3]} spacing={[8, 5, 6]}>
       <Box>

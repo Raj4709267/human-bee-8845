@@ -21,8 +21,15 @@ import ProductList from "../Components/ProductList";
 import ShopBy from "../Components/ShopBy";
 import QuerySection from "../Components/QuerySection";
 import { kidsProduct1 } from "../Data/ProductData";
+import { useNavigate } from "react-router-dom";
 
 const Kids = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/kids/kidswear", { replace: true });
+  };
+
   return (
     <Stack
       spacing={["50px", "50px", "100px"]}
@@ -37,7 +44,11 @@ const Kids = () => {
         justify="space-between"
         flexDirection={["column", "column", "row"]}
       >
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img1} />
         </Box>
         <Stack
@@ -66,7 +77,11 @@ const Kids = () => {
             with 22% off. Offer available on selected full-price items
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
@@ -96,12 +111,20 @@ const Kids = () => {
             Balmain, Versace and more
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
 
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img2} />
         </Box>
       </Flex>
@@ -159,7 +182,11 @@ const Kids = () => {
         justify="space-between"
         flexDirection={["column", "column", "row"]}
       >
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img3} />
         </Box>
 

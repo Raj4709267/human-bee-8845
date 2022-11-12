@@ -22,8 +22,15 @@ import ProductList from "../Components/ProductList";
 import ShopBy from "../Components/ShopBy";
 import QuerySection from "../Components/QuerySection";
 import { womenProductList1, womenProductList2 } from "../Data/ProductData";
+import { useNavigate } from "react-router-dom";
 
 const Womens = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/womens/womenswear", { replace: true });
+  };
+
   return (
     <Stack
       spacing={["50px", "50px", "100px"]}
@@ -38,7 +45,11 @@ const Womens = () => {
         justify="space-between"
         flexDirection={["column", "column", "row"]}
       >
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img1} />
         </Box>
         <Stack
@@ -67,7 +78,11 @@ const Womens = () => {
             with 22% off. Offer available on selected full-price items
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
@@ -97,12 +112,20 @@ const Womens = () => {
             this season’s best styles
           </Text>
 
-          <Button colorScheme="black" variant="outline">
+          <Button
+            onClick={handleNavigate}
+            colorScheme="black"
+            variant="outline"
+          >
             Shop Now
           </Button>
         </Stack>
 
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img2} />
         </Box>
       </Flex>
@@ -120,7 +143,11 @@ const Womens = () => {
         justify="space-between"
         flexDirection={["column", "column", "row"]}
       >
-        <Box cursor="pointer" w={["100%", "100%", "50%"]}>
+        <Box
+          onClick={handleNavigate}
+          cursor="pointer"
+          w={["100%", "100%", "50%"]}
+        >
           <Image src={img3} />
         </Box>
 
@@ -166,10 +193,7 @@ const Womens = () => {
       </Box>
 
       {/* Product List 2 */}
-      <ProductList
-        title="Discover: trending gifts"
-        data={womenProductList2}
-      />
+      <ProductList title="Discover: trending gifts" data={womenProductList2} />
 
       {/* Shop by brands */}
       <Box cursor="pointer">

@@ -22,7 +22,7 @@ export const Payment = () => {
 
     const handleContinue = () => {
         if (cartItems.length === 0) {
-            alert("Please Add to Bag First");
+            alert("Please Add to Cart First");
             return navigate("/");
         }
         else if (query.cardnumber === '' || query.code === '' || query.monthday === '' || query.name === '') {

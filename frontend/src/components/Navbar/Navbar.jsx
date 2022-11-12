@@ -35,7 +35,7 @@ function Navbar() {
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
   const { name } = useSelector((store) => store.AuthReducer.userData);
   const ok = useSelector((store) => store.AuthReducer.userData);
-  console.log(ok)
+  // console.log(ok)
 
   return (
     <Accordion allowToggle={true} className={style.navbar}>

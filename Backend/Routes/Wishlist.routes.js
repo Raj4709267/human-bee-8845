@@ -6,12 +6,13 @@ const WishlistRouter= Router();
 
 WishlistRouter.post("/add",authentication,async(req,res)=>{
     // const productId=req.body
-    const payload=req.headers;
+    const {userId,productId}=req.body
+
         // console.log(payload)
     try{
         const new_wishlist=new wishlistModel({
-            productId:payload.productid,
-            userId:payload.userid
+            productId,
+            userId
         })
         const data=await new_wishlist.save()
         res.status(200).send({massage:"success","massage2":"Data created",data:data})
@@ -23,9 +24,9 @@ WishlistRouter.post("/add",authentication,async(req,res)=>{
 })
 
 WishlistRouter.get("/get",authentication,async(req,res)=>{
-    const {userid}=req.headers
+    const {userId}=req.body
     try {
-        const product = await wishlistModel.find({userId:userid});
+        const product = await wishlistModel.find({userId});
         const products=product.map((item)=>{
             return item.productId
         })
@@ -48,7 +49,7 @@ WishlistRouter.delete("/delete/:wishlistId",authentication,async(req,res)=>{
     
     const {wishlistId}=req.params
     try{
-        await wishlistModel.deleteOne({_id:wishlistId})
+        await wishlistModel.deleteOne({wishlistId:wishlistId})
         res.status(201).send({"Message":"deleted"});
     }
     catch(err){

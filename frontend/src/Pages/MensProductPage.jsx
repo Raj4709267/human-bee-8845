@@ -75,7 +75,7 @@ const MensProductPage = () => {
     setLargeGrid(showFilter ? 3 : 4);
   }, [showFilter]);
 
-  // console.log(isLoading);
+
   return (
     <Box w={["95%", "95%", "90%"]} m="50px auto">
       {/* Top filter */}
@@ -103,7 +103,6 @@ const MensProductPage = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          {/* <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader> */}
           <DrawerBody m="1rem">
             <Box>
               <Text

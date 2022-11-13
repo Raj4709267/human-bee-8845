@@ -61,14 +61,6 @@ const WomensProductPage = () => {
   const [value, setValue] = React.useState("1");
   const [route, setRoute] = useState("/womens");
 
-  useEffect(() => {
-    dispatch(getData(route));
-  }, [route]);
-
-  useEffect(() => {
-    setLargeGrid(showFilter ? 3 : 4);
-  }, [showFilter]);
-
   const handleChangeRoute = (pathname) => {
     if (pathname === "SHOP WOMEN") {
       setRoute("/womens");
@@ -76,6 +68,30 @@ const WomensProductPage = () => {
       setRoute("/mens");
     }
   };
+
+  const handleSortData = (data, type) => {
+    if (type === "lth") {
+      const sorter = (a, b) => {
+        return +a.prize - +b.prize;
+      };
+      data.sort(sorter);
+      dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    } else {
+      const sorter = (a, b) => {
+        return +b.prize - +a.prize;
+      };
+      data.sort(sorter);
+      dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    }
+  };
+
+  useEffect(() => {
+    dispatch(getData(route));
+  }, [route]);
+
+  useEffect(() => {
+    setLargeGrid(showFilter ? 3 : 4);
+  }, [showFilter]);
 
   return (
     <Box w={["95%", "95%", "90%"]} m="50px auto">
@@ -208,8 +224,12 @@ const WomensProductPage = () => {
             <MenuList>
               <MenuItem>Our picks</MenuItem>
               <MenuItem>Newest first</MenuItem>
-              <MenuItem>Price: high to low</MenuItem>
-              <MenuItem>Price: low to high</MenuItem>
+              <MenuItem onClick={() => handleSortDat(data, "htl")}>
+                Price: high to low
+              </MenuItem>
+              <MenuItem onClick={() => handleSortDat(data, "lth")}>
+                Price: low to high
+              </MenuItem>
             </MenuList>
           </Menu>
         </Flex>

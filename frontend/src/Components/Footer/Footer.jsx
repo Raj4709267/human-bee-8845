@@ -17,9 +17,9 @@ const Footer = () => {
           <Text>FARFETCH APP</Text>
           <Text mt="20px">Farfetch App for iOS and Android</Text>
 
-          <Link to="/admin" >
+          {/* <Link to="/admin" >
             <Button marginTop={"20px"} disabled color="black">Login as an Admin</Button>
-          </Link>
+          </Link> */}
         </Box>
         <Box>
           <Text>DESTINATION/REGION, CURRENCY AND LANGUAGE</Text>

@@ -29,7 +29,7 @@ import {
 } from "../../Redux/Auth/action";
 import { useNavigate } from "react-router-dom";
 
-function Signup({buttonName}) {
+function Signup({ buttonName }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [signin, setSignin] = useState(true);
   const [signup, setSignup] = useState(false);
@@ -48,17 +48,16 @@ function Signup({buttonName}) {
   const finalRef = React.useRef(null);
   const dispatch = useDispatch();
   const { isLoading } = useSelector((store) => store.AuthReducer);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const handelSignin = async () => {
     const payload = { email, password };
     dispatch(signin_request());
     return await axios
       .post("https://fashionclub.onrender.com/user/login", payload)
       .then((res) => {
-
         dispatch(signin_success(res.data));
-        console.log(res.data)
-        navigate("/")
+        console.log(res.data);
+        navigate("/");
         SsetIsError(false);
         SsetIsSuccess(true);
       })
@@ -91,10 +90,17 @@ function Signup({buttonName}) {
   return (
     <>
       <p onClick={onOpen}>
-        {
-          buttonName?<Button background="black" color="white" _hover={{background:"rgb(84, 84, 84)"}}>LOGIN</Button>:<BiUser size={"1.5em"} />
-        }
-        
+        {buttonName ? (
+          <Button
+            background="black"
+            color="white"
+            _hover={{ background: "rgb(84, 84, 84)" }}
+          >
+            LOGIN
+          </Button>
+        ) : (
+          <BiUser size={"1.5em"} />
+        )}
       </p>
 
       <Modal
@@ -104,7 +110,7 @@ function Signup({buttonName}) {
         onClose={onClose}
       >
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent borderRadius={"2px"}>
           <ModalHeader>Come on in</ModalHeader>
           <ModalCloseButton
             onClick={() => {
@@ -145,6 +151,7 @@ function Signup({buttonName}) {
               <FormControl mt={4}>
                 <FormLabel>Email</FormLabel>
                 <Input
+                  focusBorderColor="black"
                   ref={initialRef}
                   placeholder="Enter Email"
                   borderColor={"black.500"}
@@ -157,6 +164,7 @@ function Signup({buttonName}) {
                 <FormLabel>Password</FormLabel>
                 <InputGroup size="md">
                   <Input
+                    focusBorderColor="black"
                     borderColor={"black.500"}
                     pr="4.5rem"
                     type={show ? "text" : "password"}
@@ -219,6 +227,7 @@ function Signup({buttonName}) {
                   placeholder="Enter Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  focusBorderColor="black"
                 />
               </FormControl>
 
@@ -230,6 +239,7 @@ function Signup({buttonName}) {
                   placeholder="Enter Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  focusBorderColor="black"
                 />
               </FormControl>
 
@@ -243,6 +253,7 @@ function Signup({buttonName}) {
                     placeholder="Enter password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    focusBorderColor="black"
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleClick}>

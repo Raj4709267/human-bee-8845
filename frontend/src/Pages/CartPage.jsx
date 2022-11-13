@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/cartpage.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
-import { TiDeleteOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeDataFromCart } from "../Redux/Cart/action";
@@ -122,12 +121,11 @@ export const CartPage = () => {
                   <div className={styles.imageDiv}>
                     <img src={data.image} alt="" />
                   </div>
-                  {/* <div className={styles.carProd2}> */}
                   <div className={styles.titleDesc}>
                     <div>
-                      <h3 className={styles}>{data.name}</h3>
+                      <h3 className={styles.headerName}>{data.name}</h3>
                       <h3 className={styles}>{data.title}</h3>
-                      <h3 className={styles}>{`FARFETCH ID: ${data._id}`}</h3>
+                      <h3 className={styles.farfetchId}>{`FARFETCH ID: ${data._id}`}</h3>
                     </div>
 
                     {/* <div>Exclusive</div> */}
@@ -135,14 +133,14 @@ export const CartPage = () => {
 
                     <div className={styles.tutor}>
                       <h3 className={styles}>$ {data.prize}</h3>
-                      <div>(Import duties included)</div>
+                      <div><p>(Import duties included)</p></div>
                     </div>
                     <div>
-                      Size
-                      <p className={styles}>{"M"}</p>
-                      <div>
-                        Quantity
+                      
+                      <p className={styles}>Size: {"M"}</p>
+                      <div >
                         <div className={styles.quantity}>
+                        Quantity
                           <select>
                             <option value={1}>1</option>
                             <option value={2}>2</option>

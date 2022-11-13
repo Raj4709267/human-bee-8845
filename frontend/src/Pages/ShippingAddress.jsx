@@ -5,15 +5,20 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 // import { Address } from "../Redux/Cart/action";
 import { fetchAddress } from "../Redux/Add/action";
-import { Alert, AlertDescription, AlertIcon, AlertTitle ,useToast } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  useToast,
+} from "@chakra-ui/react";
 
 const ShippingAddress = () => {
   const navigate = useNavigate();
 
-
-
   const dispatch = useDispatch();
 
+  const toast = useToast();
   const [address, addAddress] = useState({
     firstname: "",
     lastname: "",
@@ -24,6 +29,8 @@ const ShippingAddress = () => {
     city: "",
     state: "",
   });
+  const cartItems = useSelector((store) => store.cartReducer.cart);
+  console.log("cart", cartItems);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,73 +38,65 @@ const ShippingAddress = () => {
   };
 
   const handleAddress = () => {
-      console.log("address", address)
-      fetch("http://localhost:8080/address", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify(address),
-      })
-      .then(() => {
-              dispatch(fetchAddress());
-          });
-      // window.location.reload(true);
-  };
-  
-  useEffect(() => {
+    console.log("address", address);
+    fetch("http://localhost:8080/address", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(address),
+    }).then(() => {
       dispatch(fetchAddress());
-  }, [])
-
-  const cartItems = useSelector((store) => store.cartReducer.cart);
-  console.log("cart", cartItems);
+    });
+    // window.location.reload(true);
+  };
 
   const total_prize = cartItems.reduce((acc, current) => {
     return acc + current.prize;
   }, 24);
-  console.log("total",total_prize);
+  console.log("total", total_prize);
 
-  const handleContinue = () => {
-    if (cartItems.length === 0) {
-      alert("Please Add to Cart First");
-      return navigate("/");
-    }
-    handleAddress();
-    navigate("/payment");
-  };
-  const toast = useToast()
+  // const handleContinue = () => {
+  //   if (cartItems.length === 0) {
+  //     alert("Please Add to Cart First");
+  //     return navigate("/");
+  //   }
+  //   handleAddress();
+  //   navigate("/payment");
+  // };
+
+
   const options = {
     key: "rzp_test_HJG5Rtuy8Xh2NB",
-    amount: total_prize*1000, //  = INR 1
+    amount: total_prize * 100, //  = INR 1
     name: "Fashion Club",
     description: "some description",
     image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
-    handler: function(response) {
+    handler: function (response) {
       toast({
-        title: 'Your Payment is Success.',
+        title: "Your Payment is Success.",
         description: "We've working on your order for you.",
-        status: 'success',
+        status: "success",
         position: "top",
         duration: 9000,
         isClosable: true,
-      })
-      navigate("/")
+      });
+      navigate("/");
     },
     prefill: {
       name: "Mohammad Javed",
       contact: "9517197442",
-      email: "javed233638@demo.com"
+      email: "javed233638@demo.com",
     },
     notes: {
-      address: "some address"
+      address: "some address",
     },
     theme: {
       color: "#F37254",
-      hide_topbar: false
-    }
+      hide_topbar: false,
+    },
   };
-
-  const openPayModal = options => {
+  const openPayModal = (options) => {
     var rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
@@ -107,9 +106,9 @@ const ShippingAddress = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-
-
-
+  useEffect(() => {
+    // dispatch(fetchAddress());                        
+  }, []);
 
   return (
     <div className={styles.CheckoutContainer}>
@@ -123,11 +122,21 @@ const ShippingAddress = () => {
             <div className={styles.flexInput}>
               <div>
                 <div>First Name</div>
-                <input className={styles.form1} type="text" name="firstName" onChange={handleChange} />
+                <input
+                  className={styles.form1}
+                  type="text"
+                  name="firstName"
+                  onChange={handleChange}
+                />
               </div>
               <div>
                 <div>Last Name</div>
-                <input className={styles.form1} type="text" name="lastName" onChange={handleChange} />
+                <input
+                  className={styles.form1}
+                  type="text"
+                  name="lastName"
+                  onChange={handleChange}
+                />
               </div>
             </div>
 
@@ -141,17 +150,37 @@ const ShippingAddress = () => {
             </select>
 
             <div>Address</div>
-            <input className={styles.form1} type="text" name="address" onChange={handleChange} />
-            <input className={styles.form1} type="text" name="address" onChange={handleChange} />
+            <input
+              className={styles.form1}
+              type="text"
+              name="address"
+              onChange={handleChange}
+            />
+            <input
+              className={styles.form1}
+              type="text"
+              name="address"
+              onChange={handleChange}
+            />
 
             <div className={styles.flexInput}>
               <div>
                 <div>City *</div>
-                <input className={styles.form1} type="text" onChange={handleChange} name="city" />
+                <input
+                  className={styles.form1}
+                  type="text"
+                  onChange={handleChange}
+                  name="city"
+                />
               </div>
               <div>
                 <div>State</div>
-                <input className={styles.form1} type="text" name="state" onChange={handleChange} />
+                <input
+                  className={styles.form1}
+                  type="text"
+                  name="state"
+                  onChange={handleChange}
+                />
               </div>
             </div>
 
@@ -169,7 +198,12 @@ const ShippingAddress = () => {
               </div>
               <div>
                 <div>Phone *</div>
-                <input className={styles.form1} type="tel" name="phone" onChange={handleChange} />
+                <input
+                  className={styles.form1}
+                  type="tel"
+                  name="phone"
+                  onChange={handleChange}
+                />
               </div>
             </div>
 
@@ -204,7 +238,12 @@ const ShippingAddress = () => {
               Import duties included
             </p>
           </div>
-          <button onClick={() => openPayModal(options)} className={styles.checkoutBtn}>Save details and Pay</button>
+          <button
+            onClick={() => openPayModal(options)}
+            className={styles.checkoutBtn}
+          >
+            Save details and Pay
+          </button>
         </div>
       </div>
     </div>

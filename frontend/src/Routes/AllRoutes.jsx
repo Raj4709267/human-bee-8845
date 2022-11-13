@@ -17,6 +17,7 @@ import WomensProductPage from "../Pages/WomensProductPage";
 import KidsProductPage from "../Pages/KidsProductPage";
 import PrivateRoute from "./PrivateRoute";
 import Confirm from "../Pages/Confirm";
+import Admin from "../Pages/Admin";
 
 const AllRoutes = () => {
   return (
@@ -59,6 +60,8 @@ const AllRoutes = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Error />} />
         <Route path="/confirm" element={<Confirm />} />
+        <Route path="/admin" element={<Admin />} />
+
       </Routes>
     </div>
   );

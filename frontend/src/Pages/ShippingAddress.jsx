@@ -6,10 +6,6 @@ import { useDispatch } from "react-redux";
 // import { Address } from "../Redux/Cart/action";
 import { fetchAddress } from "../Redux/Add/action";
 import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   useToast,
 } from "@chakra-ui/react";
 
@@ -241,6 +237,7 @@ const ShippingAddress = () => {
           <button
             onClick={() => openPayModal(options)}
             className={styles.checkoutBtn}
+            
           >
             Save details and Pay
           </button>

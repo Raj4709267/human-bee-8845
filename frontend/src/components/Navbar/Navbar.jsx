@@ -21,13 +21,21 @@ import { logout_user } from "../../Redux/Auth/action";
 import Menu from "./Menu";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Hamburger from "./Hamburger";
+import { useEffect } from "react";
 
 function Navbar() {
   const [isProfile, setIsProfile] = useState(false);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const totalCart=""
-  const totalBag=""
+  // const [selected, setSelected] = useState("womens");
+  const totalCart = "";
+  const totalBag = "";
+
+  // const setSelectedLink=()=>{
+  //   console.log(selected)
+  //   // setSelectedLink(selected)
+  //   return selected
+  // }
   function setOpen(value) {
     setIsOpen(value);
   }
@@ -35,7 +43,9 @@ function Navbar() {
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
   const { name } = useSelector((store) => store.AuthReducer.userData);
   const ok = useSelector((store) => store.AuthReducer.userData);
-  // console.log(ok)
+  useEffect(() => {}, []);
+  // console.log(selected)
+
 
   return (
     <Accordion allowToggle={true} className={style.navbar}>
@@ -47,19 +57,19 @@ function Navbar() {
               <AccordionButton> My Profile</AccordionButton>
             </Link>
 
-            <Link to="/profile" >
+            <Link to="/profile">
               <AccordionButton>Details & password</AccordionButton>
             </Link>
-            <Link to="/profile" >
+            <Link to="/profile">
               <AccordionButton>Orders & returns</AccordionButton>
             </Link>
-            <Link to="/profile" >
+            <Link to="/profile">
               <AccordionButton>Refer a Friend</AccordionButton>
             </Link>
-            <Link to="/profile" >
+            <Link to="/profile">
               <AccordionButton>My preferences</AccordionButton>
             </Link>
-            <Link to="/profile" >
+            <Link to="/profile">
               <AccordionButton>Account credit</AccordionButton>
             </Link>
           </div>
@@ -76,24 +86,29 @@ function Navbar() {
             <NavLink
               to="/womens"
               style={(isActive) => ({
-                fontWeight: isActive.isActive ? "bold" : null,
-              })}
+                  fontWeight: isActive.isActive ? "bold" : null,
+                })}
             >
               Women
             </NavLink>
             <NavLink
               to="/mens"
-              style={(isActive) => ({
-                fontWeight: isActive.isActive ? "bold" : null,
-              })}
+              style={(isActive) =>  {
+                return {
+                  fontWeight: isActive.isActive ? "bold" : null,
+                }
+              }}
             >
               Men
             </NavLink>
             <NavLink
               to="/kids"
-              style={(isActive) => ({
-                fontWeight: isActive.isActive ? "bold" : null,
-              })}
+
+              style={(isActive) => {
+                return {
+                  fontWeight: isActive.isActive ? "bold" : null,
+                }
+              }}
             >
               Kids
             </NavLink>
@@ -125,10 +140,12 @@ function Navbar() {
             )}
 
             <Link to="/wishlist">
-              <BiHeart size={"1.5em"} /><span>{totalCart}</span>
+              <BiHeart size={"1.5em"} />
+              <span>{totalCart}</span>
             </Link>
             <Link to="/cart">
-              <BiShoppingBag size={"1.5em"} /><span>{totalBag}</span>
+              <BiShoppingBag size={"1.5em"} />
+              <span>{totalBag}</span>
             </Link>
           </div>
         </div>

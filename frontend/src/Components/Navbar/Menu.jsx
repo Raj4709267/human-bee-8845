@@ -7,7 +7,13 @@ function Menu() {
   // const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(0);
   // const [full,setFull]=useState(false);
-
+  // const [selected,setSelected]=useState(selected)
+  // const [link,setLink]=useState(`/${active()}/${active()}wear`)
+  
+  // const getLink=()=>{
+  //   return link
+  // }
+  // console.log(link)
   let id;
   const dropdown = (number) => {
     id = setTimeout(() => {
@@ -18,13 +24,21 @@ function Menu() {
     clearTimeout(id);
     setShow(0);
   };
+// console.log(selected)
+//   if(selected=="mens"){
+//     setLink("/womens/womenswear")
+//   }else if(selected=="womens"){
+//     setLink("/womens/womenswear")
+//   }else{
+//     setLink("/kids/kideswear")
+//   }
   return (
     <div className={style.container}>
       <div className={style.menuBar}>
         <div className={style.Menu}>
           
-          <div onMouseEnter={() => dropdown(2)} onMouseLeave={hide}>
-            <Link to={"/"}> Gifts</Link>
+          <div onMouseEnter={() => dropdown(2)} onMouseLeave={hide} onClick={hide} >
+            <Link to={"/womens/womenswear"}> Gifts</Link>
             {show === 2 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -143,8 +157,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(3)} onMouseLeave={hide}>
-            <Link to={"/"}> New In</Link>
+          <div onMouseEnter={() => dropdown(3)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> New In</Link>
             {show === 3 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -271,8 +285,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(4)} onMouseLeave={hide}>
-            <Link to={"/"}> Brnads</Link>
+          <div onMouseEnter={() => dropdown(4)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Brnads</Link>
             {show === 4 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -370,8 +384,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(5)} onMouseLeave={hide}>
-            <Link to={"/"}> Clothing</Link>
+          <div onMouseEnter={() => dropdown(5)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Clothing</Link>
             {show === 5 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -532,8 +546,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(6)} onMouseLeave={hide}>
-            <Link to={"/"}> Shoes</Link>
+          <div onMouseEnter={() => dropdown(6)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Shoes</Link>
             {show === 6 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -655,8 +669,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(7)} onMouseLeave={hide}>
-            <Link to={"/"}> Bags</Link>
+          <div onMouseEnter={() => dropdown(7)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Bags</Link>
 
             {show === 7 ? (
               <div className={style.subMenu}>
@@ -818,8 +832,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(8)} onMouseLeave={hide}>
-            <Link to={"/"}> Accessories</Link>
+          <div onMouseEnter={() => dropdown(8)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Accessories</Link>
             {show === 8 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -944,8 +958,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(9)} onMouseLeave={hide}>
-            <Link to={"/"}> Jewelry</Link>
+          <div onMouseEnter={() => dropdown(9)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Jewelry</Link>
             {show === 9 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -1065,8 +1079,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(10)} onMouseLeave={hide}>
-            <Link to={"/"}> Pre-Owned</Link>
+          <div onMouseEnter={() => dropdown(10)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Pre-Owned</Link>
             {show === 10 ? (
               <div className={style.subMenu}>
                 <div className={style.subMenuInside}>
@@ -1231,8 +1245,8 @@ function Menu() {
               <></>
             )}
           </div>
-          <div onMouseEnter={() => dropdown(11)} onMouseLeave={hide}>
-            <Link to={"/"}> Sale</Link>
+          <div onMouseEnter={() => dropdown(11)} onMouseLeave={hide} onClick={hide}>
+            <Link to={"/womens/womenswear"}> Sale</Link>
 
             {show === 11 ? (
               <div className={style.subMenu}>

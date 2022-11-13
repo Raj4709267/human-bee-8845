@@ -2,7 +2,7 @@ import * as types from "./actionTypes";
 const initialState = {
   isAuth: JSON.parse(localStorage.getItem("fashionClub_userData"))?true:false,
   isLoading: false,
-  userData: JSON.parse(localStorage.getItem("fashionClub_userData")) || {},
+  userData: JSON.parse(localStorage.getItem("fashionClub_userData")) || [],
   isError:false,
 };
 const AuthReducer = (state = initialState, action) => {
@@ -29,7 +29,7 @@ const AuthReducer = (state = initialState, action) => {
     }
     case types.USER_LOGOUT:{
         localStorage.clear("fashionClub_userData")
-        return {...state,isAuth:false}
+        return {...state,isAuth:false,userData:[]}
     }
     default:
       return state;

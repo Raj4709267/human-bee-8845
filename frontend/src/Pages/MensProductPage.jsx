@@ -43,6 +43,7 @@ import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
 import { Route } from "react-router-dom";
+import { GET_DATA_SUCCESS } from "../Redux/AppReducer/actionType";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
@@ -62,6 +63,14 @@ const MensProductPage = () => {
   const [value, setValue] = React.useState("1");
   const [route, setRoute] = useState("/mens");
 
+  const handleChangeRoute = (pathname) => {
+    if (pathname === "SHOP WOMEN") {
+      setRoute("/womens");
+    } else if (pathname === "SHOP MEN") {
+      setRoute("/mens");
+    }
+  };
+
   const handleSortData = (data, type) => {
     if (type === "lth") {
       const sorter = (a, b) => {
@@ -75,14 +84,6 @@ const MensProductPage = () => {
       };
       data.sort(sorter);
       dispatch({ type: GET_DATA_SUCCESS, payload: data });
-    }
-  };
-
-  const handleChangeRoute = (pathname) => {
-    if (pathname === "SHOP WOMEN") {
-      setRoute("/womens");
-    } else if (pathname === "SHOP MEN") {
-      setRoute("/mens");
     }
   };
 

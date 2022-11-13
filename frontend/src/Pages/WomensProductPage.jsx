@@ -42,6 +42,7 @@ import { useEffect } from "react";
 import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
+import { GET_DATA_SUCCESS } from "../Redux/AppReducer/actionType";
 
 const WomensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
@@ -61,13 +62,6 @@ const WomensProductPage = () => {
   const [value, setValue] = React.useState("1");
   const [route, setRoute] = useState("/womens");
 
-  const handleChangeRoute = (pathname) => {
-    if (pathname === "SHOP WOMEN") {
-      setRoute("/womens");
-    } else if (pathname === "SHOP MEN") {
-      setRoute("/mens");
-    }
-  };
 
   const handleSortData = (data, type) => {
     if (type === "lth") {
@@ -85,6 +79,15 @@ const WomensProductPage = () => {
     }
   };
 
+  const handleChangeRoute = (pathname) => {
+    if (pathname === "SHOP WOMEN") {
+      setRoute("/womens");
+    } else if (pathname === "SHOP MEN") {
+      setRoute("/mens");
+    }
+  };
+  
+  
   useEffect(() => {
     dispatch(getData(route));
   }, [route]);
@@ -227,7 +230,7 @@ const WomensProductPage = () => {
               <MenuItem onClick={() => handleSortDat(data, "htl")}>
                 Price: high to low
               </MenuItem>
-              <MenuItem onClick={() => handleSortDat(data, "lth")}>
+              <MenuItem onClick={() => handleSortData(data, "lth")}>
                 Price: low to high
               </MenuItem>
             </MenuList>

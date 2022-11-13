@@ -18,7 +18,7 @@ function Menu() {
   const dropdown = (number) => {
     id = setTimeout(() => {
       setShow(number);
-    }, 500);
+    }, 300);
   };
   const hide = () => {
     clearTimeout(id);

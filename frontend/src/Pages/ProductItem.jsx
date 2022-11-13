@@ -1,4 +1,4 @@
-import { Box, Image, Text, useToast } from "@chakra-ui/react";
+import { AlertDialog, AlertDialogOverlay, Box, Image, Spinner, Text, useDisclosure, useToast } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -9,48 +9,65 @@ import axios from "axios";
 const ProductItem = ({ item }) => {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const { userData } = useSelector((store) => store.AuthReducer);
+  const { userData, isAuth } = useSelector((store) => store.AuthReducer);
   const toast = useToast();
+  
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
 
   const handleClick = () => {
     navigate(`/singleproduct/${item._id}`, { replace: true });
   };
 
   const handleAddToWishlist = () => {
-    setToggle(!toggle);
-
-    axios
-      .post(
-        "https://fashionclub.onrender.com/wishlist/add",
-        { productId: item._id },
-        {
-          headers: {
-            authorization: `bearer ${userData.token}`,
-          },
-        }
-      )
-      .then((res) => {
-        // console.log(res);
-        toast({
-          title: "Product added to wishlist success full.",
-          description: "We've added your product.",
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-          position: "top",
+    if (isAuth) {
+      setToggle(!toggle);
+      onOpen();
+      axios
+        .post(
+          "https://fashionclub.onrender.com/wishlist/add",
+          { productId: item._id },
+          {
+            headers: {
+              authorization: `bearer ${userData.token}`,
+            },
+          }
+        )
+        .then((res) => {
+          // console.log(res);
+          onClose()
+          toast({
+            title: "Product added to wishlist success full.",
+            description: "We've added your product.",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+        })
+        .catch((er) => {
+          onClose()
+          // console.log(er);
+          toast({
+            title: "Product is already present.",
+            description: "Failed to add wishlist",
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
         });
-      })
-      .catch((er) => {
-        // console.log(er);
-        toast({
-          title: "Product is already present.",
-          description: "Failed to add wishlist",
-          status: "error",
-          duration: 3000,
-          isClosable: true,
-          position: "top",
-        });
+    }
+    else{
+      toast({
+        title: "Login in first",
+        description: "Failed to add wishlist",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
       });
+    }
   };
 
   return (
@@ -80,6 +97,22 @@ const ProductItem = ({ item }) => {
       </Box>
 
       <Text p="0.8rem 1rem">{`$${item.prize}`}</Text>
+      <>
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <Spinner
+              color="white"
+              size={"lg"}
+              marginLeft="50vw"
+              marginTop="50vh"
+            />
+          </AlertDialogOverlay>
+        </AlertDialog>
+      </>
     </Box>
   );
 };

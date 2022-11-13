@@ -10,7 +10,7 @@ import {
   BiEnvelope,
   BiPhone,
 } from "react-icons/bi";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   SimpleGrid,
@@ -29,16 +29,131 @@ import {
   ListItem,
   UnorderedList,
   Spacer,
+  useToast,
+  Spinner,
+  AlertDialog,
+  AlertDialogOverlay,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Style from "./SingleProduct.module.css";
 import Form from "../SingleProduct/Form";
 import { useParams } from "react-router-dom";
 
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const SingleProduct = () => {
   const [item, setItem] = React.useState();
+  const [loadingAddtoCart, setLoadingAddtoCart] = useState(false);
+  const [loadingAddtoWishlist, setLoadingAddtoWishlist] = useState(false);
+
   const { productId } = useParams();
+  const { userData, isAuth } = useSelector((store) => store.AuthReducer);
+  const toast = useToast();
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
+
+  const handelAddtoCart = () => {
+    if (isAuth) {
+      setLoadingAddtoCart(true);
+      onOpen();
+      axios
+        .post(
+          "https://fashionclub.onrender.com/cart/add",
+          { productId: productId },
+          {
+            headers: {
+              authorization: `Bear ${userData.token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          onClose();
+          toast({
+            title: "Added to Cart.",
+            description: "Item Added",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+          setLoadingAddtoCart(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          onClose();
+          toast({
+            title: "Already added",
+            status: "error",
+            duration: 4000,
+            isClosable: true,
+          });
+          setLoadingAddtoCart(false);
+        });
+    } else {
+      toast({
+        title: "Login in first",
+        description: "Failed to add wishlist",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
+  const handelAddtoWishlist = () => {
+    if (isAuth) {
+      setLoadingAddtoWishlist(true);
+      onOpen();
+      axios
+        .post(
+          "https://fashionclub.onrender.com/wishlist/add",
+          { productId: productId },
+          {
+            headers: {
+              authorization: `bearer ${userData.token}`,
+            },
+          }
+        )
+        .then((res) => {
+          // console.log(res);
+          setLoadingAddtoWishlist(false);
+          onClose();
+          toast({
+            title: "Product added to wishlist",
+            description: "We've added your product.",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+        })
+        .catch((er) => {
+          // console.log(er);
+          setLoadingAddtoWishlist(false);
+          onClose();
+          toast({
+            title: "Product is already present.",
+            description: "Failed to add wishlist",
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+        });
+    } else {
+      toast({
+        title: "Login in first",
+        description: "Failed to add wishlist",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
 
   useEffect(() => {
     axios
@@ -60,7 +175,13 @@ const SingleProduct = () => {
   };
   return (
     <>
-      <Box w="90%" m="auto" display="flex" className={Style.main}>
+      <Box
+        w="90%"
+        m="auto"
+        display="flex"
+        marginTop={"50px"}
+        className={Style.main}
+      >
         <Box w="65%" height="550px" className={Style.main2}>
           <div>
             <Slider {...settings} style={{ height: "480px" }}>
@@ -106,9 +227,12 @@ const SingleProduct = () => {
               <Button
                 w="62%"
                 mr="10px"
-                colorScheme="teal"
+                backgroundColor={"black"}
                 variant="solid"
                 className={Style.btn1}
+                color="white"
+                _hover={{ backgroundColor: "#2f3337" }}
+                onClick={handelAddtoCart}
               >
                 Add to Bag
               </Button>
@@ -117,8 +241,9 @@ const SingleProduct = () => {
                 colorScheme="black"
                 variant="outline"
                 className={Style.btn2}
+                onClick={handelAddtoWishlist}
               >
-                Wishlist
+                <Text marginRight={"5px"}>Wishlist</Text>
                 <BiHeart size={"1.5em"} />
               </Button>
             </Box>
@@ -339,6 +464,22 @@ const SingleProduct = () => {
         </Box>
       </Box>
       <Form />
+      <>
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <Spinner
+              color="white"
+              size={"lg"}
+              marginLeft="50vw"
+              marginTop="50vh"
+            />
+          </AlertDialogOverlay>
+        </AlertDialog>
+      </>
     </>
   );
 };

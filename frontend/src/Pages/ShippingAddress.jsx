@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 // import { Address } from "../Redux/Cart/action";
 import { fetchAddress } from "../Redux/Add/action";
-import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle ,useToast } from "@chakra-ui/react";
 
 const ShippingAddress = () => {
   const navigate = useNavigate();
@@ -65,6 +65,52 @@ const ShippingAddress = () => {
     handleAddress();
     navigate("/payment");
   };
+  const toast = useToast()
+  const options = {
+    key: "rzp_test_HJG5Rtuy8Xh2NB",
+    amount: total_prize*1000, //  = INR 1
+    name: "Fashion Club",
+    description: "some description",
+    image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
+    handler: function(response) {
+      toast({
+        title: 'Your Payment is Success.',
+        description: "We've working on your order for you.",
+        status: 'success',
+        position: "top",
+        duration: 9000,
+        isClosable: true,
+      })
+      navigate("/")
+    },
+    prefill: {
+      name: "Mohammad Javed",
+      contact: "9517197442",
+      email: "javed233638@demo.com"
+    },
+    notes: {
+      address: "some address"
+    },
+    theme: {
+      color: "#F37254",
+      hide_topbar: false
+    }
+  };
+
+  const openPayModal = options => {
+    var rzp1 = new window.Razorpay(options);
+    rzp1.open();
+  };
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+
+
+
   return (
     <div className={styles.CheckoutContainer}>
       <div className={styles.CheckoutBox}>
@@ -158,7 +204,7 @@ const ShippingAddress = () => {
               Import duties included
             </p>
           </div>
-          <button onClick={handleContinue} className={styles.checkoutBtn}>Save and Continue</button>
+          <button onClick={() => openPayModal(options)} className={styles.checkoutBtn}>Save details and Pay</button>
         </div>
       </div>
     </div>

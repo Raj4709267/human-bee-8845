@@ -6,10 +6,29 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeDataFromCart } from "../Redux/Cart/action";
 import axios from "axios";
+import {
+  AlertDialog,
+  AlertDialogOverlay,
+  Box,
+  Img,
+  Skeleton,
+  SkeletonText,
+  Spinner,
+  Text,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 // import { removeDataFromCart } from "../../Redux/action";
-
+import { IoCloseOutline } from "react-icons/io5";
 export const CartPage = () => {
   const navigate = useNavigate();
+  const loadingItem = new Array(12).fill(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
+  const [empty, setEmpty] = useState(false);
+
+  const toast = useToast();
 
   const cartItems = useSelector((store) => store.cartReducer.cart);
   console.log("cart", cartItems);
@@ -24,63 +43,65 @@ export const CartPage = () => {
     navigate("/shippingaddress");
   };
 
-  // const handleContinueShopping = () => {
-  //     navigate("/product");
-  // };
-  // const total_price = 0
-  //     total price
   const total_prize = cartItems.reduce((acc, current) => {
     return acc + current.prize;
   }, 24);
   console.log("total", total_prize);
 
-  // const deleteCart=({id})=>{
-  //   return axios
-  //   .then()
-  //   .catch()
-  //   .then(()=>getCart())
-  // }
-  const { userId,token } = useSelector((store) => store.AuthReducer.userData);
+  const { token } = useSelector((store) => store.AuthReducer.userData);
 
-  // console.log(userId,token)
-  
   const handleDel = (id) => {
-    // console.log("id", id);
-    // dispatch(removeDataFromCart(id));
-    console.log(id)
-    return axios.delete(`https://fashionclub.onrender.com/cart/delete/${id}`,{
-      headers:{
-        "authorization":`bearer ${token}`
-      }
-    })
-    .then(res=>{
-      console.log(res)
-    })
-    .catch(err=>{
-      console.log("delete"+err)
-    })
-    .then(()=>getCart())
-    
+    onOpen();
+    console.log(id);
+    return axios
+      .delete(`https://fashionclub.onrender.com/cart/delete/${id}`, {
+        headers: {
+          authorization: `bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("delete" + err);
+      })
+      .then(() =>
+        getCart().then(() => {
+          onClose();
+          toast({
+            title: "Item Removed Successfully",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "bottom",
+          });
+        })
+      );
   };
 
-
   function getCart() {
-    axios
-      .get("https://fashionclub.onrender.com/cart/get",{
-        headers:{
-          "authorization":`bearer ${token}`
-        }
+    setEmpty(false)
+    return axios
+      .get("https://fashionclub.onrender.com/cart/get", {
+        headers: {
+          authorization: `bearer ${token}`,
+        },
       })
       .then((res) => {
         dispatch(addToCart(res.data));
-        console.log(res.data);
+        setIsLoading(false);
+        setEmpty(true)
       })
       .catch((err) => {
-        console.log("err",err);
+        setIsLoading(false);
+        console.log("err", err);
       });
   }
 
   useEffect(() => {
+    if (cartItems.length == 0) {
+      setIsLoading(true);
+    }
     getCart();
   }, []);
 
@@ -102,14 +123,14 @@ export const CartPage = () => {
                     <img src={data.image} alt="" />
                   </div>
                   {/* <div className={styles.carProd2}> */}
-                    <div className={styles.titleDesc}>
-                      <div>
+                  <div className={styles.titleDesc}>
+                    <div>
                       <h3 className={styles}>{data.name}</h3>
                       <h3 className={styles}>{data.title}</h3>
                       <h3 className={styles}>{`FARFETCH ID: ${data._id}`}</h3>
-                      </div>
+                    </div>
 
-                      {/* <div>Exclusive</div> */}
+                    {/* <div>Exclusive</div> */}
                     {/* </div> */}
 
                     <div className={styles.tutor}>
@@ -138,17 +159,39 @@ export const CartPage = () => {
                       </div>
                     </div>
                     <div>
-                      <TiDeleteOutline
+                      <IoCloseOutline
                         className={styles.delBtn}
                         onClick={() => {
                           handleDel(data._id);
                         }}
-                      />{" "}
+                      />
                     </div>
                   </div>
                 </div>
               );
             })}
+
+          {isLoading &&
+            loadingItem.map((el, index) => (
+              <Box key={index + 1} p="1rem">
+                <Skeleton w="100%" h="200px"></Skeleton>
+                <SkeletonText w="100%"></SkeletonText>
+              </Box>
+            ))}
+          <Text margin={"auto"} fontSize="30px" textAlign="center">
+            {cartItems.length == 0 && empty && "Your Bag is empty"}
+          </Text>
+          {cartItems.length == 0 && empty && (
+        <Img
+          margin={"auto"}
+          height="200px"
+          src="https://media.istockphoto.com/id/861576608/vector/empty-shopping-bag-icon-online-business-vector-icon-template.jpg?s=612x612&w=0&k=20&c=I7MbHHcjhRH4Dy0NVpf4ZN4gn8FVDnwn99YdRW2x5k0="
+          alt="https://media.istockphoto.com/id/861576608/vector/empty-shopping-bag-icon-online-business-vector-icon-template.jpg?s=612x612&w=0&k=20&c=I7MbHHcjhRH4Dy0NVpf4ZN4gn8FVDnwn99YdRW2x5k0="
+        />
+      )}
+          <Text margin={"auto"} marginBottom="50px" fontSize="16px" textAlign="center">
+            {cartItems.length == 0 && empty && "Please add some Products"}
+          </Text>
         </div>
         <div className={styles.Summary}>
           <h3>Summary</h3>
@@ -174,6 +217,22 @@ export const CartPage = () => {
           </button>
         </div>
       </div>
+      <>
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <Spinner
+              color="white"
+              size={"lg"}
+              marginLeft="50vw"
+              marginTop="50vh"
+            />
+          </AlertDialogOverlay>
+        </AlertDialog>
+      </>
     </div>
   );
 };

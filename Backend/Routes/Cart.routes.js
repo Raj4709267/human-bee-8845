@@ -8,7 +8,7 @@ CartRouter.post("/add", authentication, async (req, res) => {
     const { userId, productId } = req.body;
 
     // console.log(payload)
-    const isPresent = await cartModel.findOne({ productId });
+    const isPresent = await cartModel.findOne({ productId,userId });
     if (isPresent) {
       res
         .status(500)

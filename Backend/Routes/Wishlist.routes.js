@@ -9,7 +9,7 @@ WishlistRouter.post("/add", authentication, async (req, res) => {
   const { userId, productId } = req.body;
 
   // console.log(payload)
-  const isPresent = await wishlistModel.findOne({ productId });
+  const isPresent = await wishlistModel.findOne({ productId ,userId});
   if (isPresent) {
     res
       .status(500)

@@ -13,6 +13,7 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
@@ -49,6 +50,7 @@ function Signup({ buttonName }) {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((store) => store.AuthReducer);
   const navigate = useNavigate();
+  const toast=useToast();
   const handelSignin = async () => {
     const payload = { email, password };
     dispatch(signin_request());
@@ -60,6 +62,13 @@ function Signup({ buttonName }) {
         navigate("/");
         SsetIsError(false);
         SsetIsSuccess(true);
+        toast({
+          title: "Login in Successfull",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
       })
       .catch((err) => {
         dispatch(signin_failure());

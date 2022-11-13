@@ -43,6 +43,7 @@ import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
 import { Route } from "react-router-dom";
+import { GET_DATA_SUCCESS } from "../Redux/AppReducer/actionType";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
@@ -62,14 +63,6 @@ const MensProductPage = () => {
   const [value, setValue] = React.useState("1");
   const [route, setRoute] = useState("/mens");
 
-  useEffect(() => {
-    dispatch(getData(route));
-  }, [route]);
-
-  useEffect(() => {
-    setLargeGrid(showFilter ? 3 : 4);
-  }, [showFilter]);
-
   const handleChangeRoute = (pathname) => {
     if (pathname === "SHOP WOMEN") {
       setRoute("/womens");
@@ -77,6 +70,30 @@ const MensProductPage = () => {
       setRoute("/mens");
     }
   };
+
+  const handleSortData = (data, type) => {
+    if (type === "lth") {
+      const sorter = (a, b) => {
+        return +a.prize - +b.prize;
+      };
+      data.sort(sorter);
+      dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    } else {
+      const sorter = (a, b) => {
+        return +b.prize - +a.prize;
+      };
+      data.sort(sorter);
+      dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    }
+  };
+
+  useEffect(() => {
+    dispatch(getData(route));
+  }, [route]);
+
+  useEffect(() => {
+    setLargeGrid(showFilter ? 3 : 4);
+  }, [showFilter]);
 
   return (
     <Box w={["95%", "95%", "90%"]} m="50px auto">
@@ -209,8 +226,12 @@ const MensProductPage = () => {
             <MenuList>
               <MenuItem>Our picks</MenuItem>
               <MenuItem>Newest first</MenuItem>
-              <MenuItem>Price: high to low</MenuItem>
-              <MenuItem>Price: low to high</MenuItem>
+              <MenuItem onClick={() => handleSortData(data, "htl")}>
+                Price: high to low
+              </MenuItem>
+              <MenuItem onClick={() => handleSortData(data, "lth")}>
+                Price: low to high
+              </MenuItem>
             </MenuList>
           </Menu>
         </Flex>

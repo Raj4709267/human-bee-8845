@@ -42,6 +42,7 @@ import { useEffect } from "react";
 import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
+import { GET_DATA_SUCCESS } from "../Redux/AppReducer/actionType";
 
 const WomensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
@@ -61,13 +62,21 @@ const WomensProductPage = () => {
   const [value, setValue] = React.useState("1");
   const [route, setRoute] = useState("/womens");
 
-  useEffect(() => {
-    dispatch(getData(route));
-  }, [route]);
-
-  useEffect(() => {
-    setLargeGrid(showFilter ? 3 : 4);
-  }, [showFilter]);
+  const handleSortData = (data, type) => {
+    if (type === "lth") {
+      const sorter = (a, b) => {
+        return +a.prize - +b.prize;
+      };
+      data.sort(sorter);
+      dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    } else {
+      const sorter = (a, b) => {
+        return +b.prize - +a.prize;
+      };
+      data.sort(sorter);
+      dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    }
+  };
 
   const handleChangeRoute = (pathname) => {
     if (pathname === "SHOP WOMEN") {
@@ -76,6 +85,14 @@ const WomensProductPage = () => {
       setRoute("/mens");
     }
   };
+
+  useEffect(() => {
+    dispatch(getData(route));
+  }, [route]);
+
+  useEffect(() => {
+    setLargeGrid(showFilter ? 3 : 4);
+  }, [showFilter]);
 
   return (
     <Box w={["95%", "95%", "90%"]} m="50px auto">
@@ -208,8 +225,12 @@ const WomensProductPage = () => {
             <MenuList>
               <MenuItem>Our picks</MenuItem>
               <MenuItem>Newest first</MenuItem>
-              <MenuItem>Price: high to low</MenuItem>
-              <MenuItem>Price: low to high</MenuItem>
+              <MenuItem onClick={() => handleSortData(data, "htl")}>
+                Price: high to low
+              </MenuItem>
+              <MenuItem onClick={() => handleSortData(data, "lth")}>
+                Price: low to high
+              </MenuItem>
             </MenuList>
           </Menu>
         </Flex>

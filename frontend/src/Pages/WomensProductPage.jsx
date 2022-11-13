@@ -62,14 +62,6 @@ const WomensProductPage = () => {
   const [value, setValue] = React.useState("1");
   const [route, setRoute] = useState("/womens");
 
-  const handleChangeRoute = (pathname) => {
-    if (pathname === "SHOP WOMEN") {
-      setRoute("/womens");
-    } else if (pathname === "SHOP MEN") {
-      setRoute("/mens");
-    }
-  };
-
   const handleSortData = (data, type) => {
     if (type === "lth") {
       const sorter = (a, b) => {
@@ -83,6 +75,14 @@ const WomensProductPage = () => {
       };
       data.sort(sorter);
       dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    }
+  };
+
+  const handleChangeRoute = (pathname) => {
+    if (pathname === "SHOP WOMEN") {
+      setRoute("/womens");
+    } else if (pathname === "SHOP MEN") {
+      setRoute("/mens");
     }
   };
 

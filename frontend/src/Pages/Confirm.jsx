@@ -1,15 +1,15 @@
 import React from "react";
-import { Center, Square, Box, Container, Heading } from "@chakra-ui/react";
+import { Center, Text, Box, Image, Heading } from "@chakra-ui/react";
 import {CheckIcon } from '@chakra-ui/icons'
 const Confirm = () => {
   return (
     <>
-      <Box bg="gray" h="400px" color="white" textAlign={"center"} padding="10% 10% 10% 10%">
+      <Box bg="#edf2f7" color="white-black" textAlign={"center"} padding="-0 10% 10% 9%">
         <center>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSBiAbfZ8aAeBZBhLpDtdU1f4Wgs6dtYFjUveYCmYP&s" />
-          <Heading textShadow='1px 1px #ff0000' m='6'>
+          <Image src="https://media.tenor.com/se7cU4QJ0KAAAAAi/delivery.gif" />
+          <Heading textShadow='1.5px 2px #1c2938' m='6'>
            <CheckIcon bg={"blue"}/> 
-            Your Order Is Confirm We will Share details on Email or Mobile.
+            <Text as="samp">Your Order Is Confirm We will Share details on Email or Mobile. You can Track with this id</Text> <Text as="mark">{Math.floor(Math.random()*9000000) + 1000000}</Text>
           </Heading>
         </center>
       </Box>

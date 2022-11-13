@@ -12,7 +12,6 @@
     width: 10%;
     text-align: left;
     height: 400px;
-    /* border: 1px solid red ; */
 }
 
 .pymtDiv {
@@ -52,14 +51,16 @@
 
 .CheckoutBox {
     width: 90%;
-    margin: auto;
     display: flex;
+    /* text-align: left; */
     justify-content: space-between;
-    text-align: left;
+    margin: auto;
+
 }
 
+
 .CheckoutBox>div:nth-child(1) {
-    width: 50%;
+    width: 60%;
     margin-right: 10px;
 }
 
@@ -70,9 +71,9 @@
     font-size: 16px;
     line-height: 22px;
     max-width: 100%;
-    position: fixed;
+    /* position: fixed; */
     right: 0;
-    margin-right: 90px;
+    /* margin-right: 90px; */
 }
 
 .addForm {
@@ -142,4 +143,23 @@
 .rightText{
     display: flex;
     align-items: center;
+}
+
+@media only screen and (min-width:0px) and (max-width:850px){
+    .CheckoutBox {
+        width: 90%;
+        display: flex;
+        /* text-align: left; */
+        flex-direction: column;
+        justify-content: space-between;
+        margin: auto;
+    
+    }
+    .CheckoutBox>div:first-child{
+        width: 100%;
+    }
+    .CheckoutBox>div:last-child{
+        margin: auto;
+        width: 100%;
+    }
 }

@@ -62,6 +62,7 @@ const WomensProductPage = () => {
   const [value, setValue] = React.useState("1");
   const [route, setRoute] = useState("/womens");
 
+
   const handleSortData = (data, type) => {
     if (type === "lth") {
       const sorter = (a, b) => {
@@ -85,7 +86,8 @@ const WomensProductPage = () => {
       setRoute("/mens");
     }
   };
-
+  
+  
   useEffect(() => {
     dispatch(getData(route));
   }, [route]);
@@ -225,7 +227,7 @@ const WomensProductPage = () => {
             <MenuList>
               <MenuItem>Our picks</MenuItem>
               <MenuItem>Newest first</MenuItem>
-              <MenuItem onClick={() => handleSortData(data, "htl")}>
+              <MenuItem onClick={() => handleSortDat(data, "htl")}>
                 Price: high to low
               </MenuItem>
               <MenuItem onClick={() => handleSortData(data, "lth")}>

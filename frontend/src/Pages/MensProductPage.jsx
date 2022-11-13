@@ -43,6 +43,7 @@ import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
 import { Route } from "react-router-dom";
+import { GET_DATA_SUCCESS } from "../Redux/AppReducer/actionType";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);

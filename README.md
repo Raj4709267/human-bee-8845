@@ -6,9 +6,9 @@ Fashion Club is an E-Commerce website anyone can buy products easily from our we
 
 # Farfetch.com-Clone
 
-Hello Everyone, my name is Aakash Kumar and I would like to share my Experience in this Construction Week, this time Masai School give me the Farfetch website to clone as a part of our Unit-2 construct week, and yes, this is a replicate of the Farfetch Website which was not developed by the Lybrate SDE’s.
+Hello Everyone, my name is Javed and I would like to share my Experience in this Construction Week, this time Masai School give me the Farfetch website to clone as a part of our Unit-6 construct week, and yes, this is a replicate of the Farfetch Website.
 
-This was a solo project executed within a 5 days of span.
+This was a collaborative project executed within a 5 days of span.
 
 Have a look ⬇️
 

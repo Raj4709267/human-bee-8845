@@ -2,8 +2,6 @@
 Fashion Club is an E-Commerce website anyone can buy products easily from our website.
 
 
-![App Screenshot]()
-
 # Farfetch.com-Clone
 
 Hello Everyone, my name is Raj kumar mahto and I would like to share my one of the fully functional and fully responsive E-Commerce website, this time Masai School give me the Farfetch website to clone as a part of our construct week, and yes, this is a replicate of the Farfetch Website.

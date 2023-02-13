@@ -6,9 +6,9 @@ Fashion Club is an E-Commerce website anyone can buy products easily from our we
 
 # Farfetch.com-Clone
 
-Hello Everyone, my name is Aakash Kumar and I would like to share my Experience in this Construction Week, this time Masai School give me the Farfetch website to clone as a part of our Unit-2 construct week, and yes, this is a replicate of the Farfetch Website which was not developed by the Lybrate SDE’s.
+Hello Everyone, my name is Raj kumar mahto and I would like to share my one of the fully functional and fully responsive E-Commerce website, this time Masai School give me the Farfetch website to clone as a part of our construct week, and yes, this is a replicate of the Farfetch Website.
 
-This was a solo project executed within a 5 days of span.
+This was a group project executed within a 5 days of span.
 
 Have a look ⬇️
 
@@ -23,7 +23,7 @@ NodeJs, React ,Redux,Mongodb,Express,ChakarUI
 
 ## Live Link
 
-- [Deploy_Link](https://fashionclub-inky.vercel.app/)
+- [Deploy_Link](https://fashionclub-three.vercel.app/)
 
 Features
 Responsiveness using Chakra UI
@@ -58,17 +58,6 @@ gitHub:-https://github.com/Rahul5303
 
 ## Screenshots
 
-![App Screenshot](https://miro.medium.com/max/875/1*h-yTz_plDSGI-cztXvbklA.jpeg)
-
-![App Screenshot](https://miro.medium.com/max/875/1*IPTCj70KN7leyQJ_k5iawA.jpeg)
-
-![App Screenshot](https://miro.medium.com/max/875/1*yOYCnn52HTFDMMxfwnJYfw.jpeg)
-
-![App Screenshot](https://miro.medium.com/max/875/1*fKRMZZJarCITW7jbLA62kQ.jpeg)
-
-![App Screenshot](https://miro.medium.com/max/758/1*guIw6kLpVilpLDdB48hubA.jpeg)
-
-![App Screenshot](https://miro.medium.com/max/875/1*-rsAvG34cGeHDnwjWcgkzQ.jpeg)
 
 
 
